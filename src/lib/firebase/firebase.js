@@ -9,6 +9,7 @@ import { getFirestore } from "firebase/firestore/lite";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration ESTAS SON LAS CREDENCIALES
+//SDK: software development kit
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAn7VynXXNO9tVNMUJvhtLRmhaY_eRPuIo",

@@ -49,12 +49,14 @@
   background-color: #c4f582c2
 }
 
-.txtIngresaMail {
+.textoRegistro {
+  text-align: center;
+  width: 300px;
   top: 340px;
   color: #000000;
   position: absolute;
   font-size: 28px;
-  font-weight: bold;
+
  
 }
 
@@ -67,6 +69,14 @@
   color: black;
   font-size: 24px;
 
+}
+.txtIngresaMail {
+  top: 340px;
+  color: #000000;
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+ 
 }
 
 .txtIngresaClave {
@@ -155,6 +165,27 @@
 
 }
 
+.contenedorPosts{
+  flex-direction: column;
+  overflow: auto;
+  border: 2px solid #e86864;
+  border-radius: 3px;
+  background-color: white;
+  display:flex;
+  width: 90%;
+  height: 600px;
+
+}
+
+.listaDePost{
+  padding: 5px;
+  
+  /* background-color:white; */
+  display: flex;
+  width: 80%;
+  height: 300px;
+}
+
 /* ------VISTA DEL REGISTRO------ */
 .contenedorRegister {
   margin: auto;
@@ -221,6 +252,8 @@
   font-size: 16px;
   border-color: #e86864;
 }
+
+
 
 /* } */
 

@@ -1,5 +1,13 @@
-import { signInWithEmailAndPassword, getAuth, createUserWithEmailAndPassword, signOut, signInWithPopup, GoogleAuthProvider, } from "firebase/auth";
-import { addDoc, collection, getFirestore } from "firebase/firestore/lite";
+import {
+  signInWithEmailAndPassword,
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged
+} from "firebase/auth";
+import { addDoc, collection, getFirestore, query, onSnapshot, } from "firebase/firestore";
 import { onNavigate } from "../lib/router";
 
 const auth = getAuth();
@@ -65,24 +73,40 @@ export const loginGoogle = () => {
       // ...
     });
 };
-//  const publicaciones = (txt) => {
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+//  const publicaciones = (txt) => {
+//codigo maris
 // const docRef = addDoc(collection(db, "Publicacion"), {
 //   // email: "",
 //   Texto: txt
 // });
 // console.log("Document written with ID: ", docRef.id);
 
-//  }
+//  } codigo Glen
 export function addpost(data) {
 
   return addDoc(collection(db, 'Publicacion'), {
     text: data,
-    email: auth.currentUser.displayName
-  });
+    email: auth.currentUser.email,
+  
+  })
 }
-export async function listarPublicaciones(callback) {
+
+export function listarPublicaciones(callback) {
   const queryPost = query(collection(db, 'Publicacion'));
   onSnapshot(queryPost, callback);
 }
+
 

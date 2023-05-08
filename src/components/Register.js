@@ -9,13 +9,13 @@ export function createRegister() {
   const contenedorRegister = document.createElement("form");
   contenedorRegister.classList.add("contenedorRegister");
 
-  const textoRegistro = document.createElement("p");
+  const textoRegistro = document.createElement("div");
   textoRegistro.classList = "textoRegistro";
-  contenedorRegister.appendChild(textoRegistro);
+  // contenedorRegister.appendChild(textoRegistro);MOSTRADO ABAJO
   textoRegistro.textContent = "Ingrese su mail y clave para registrarse en la app"
 
 
-  //como hacer un contenedor paara estos 2 input juntos?
+  
   const mailRegistro = document.createElement("input");
   mailRegistro.classList = "mailInput";
   contenedorRegister.appendChild(mailRegistro);
@@ -37,13 +37,13 @@ export function createRegister() {
   const logoRegistro = document.createElement("img");
   logoRegistro.classList.add("logoMarchantes");
   logoRegistro.src = "../imagenes/logo-marchantes.png";
-  contenedorRegister.appendChild(logoRegistro);
+  // contenedorRegister.appendChild(logoRegistro); MOSTRADO ABAJO
 
   // Creación de un elemento button y asignación a la variable button
   const registrarseAqui = document.createElement("button");
   //Le damos la clase para el css. quitandole el add, me funciono
   registrarseAqui.classList = "registrarseAqui";
-  contenedorRegister.appendChild(registrarseAqui);
+  // contenedorRegister.appendChild(registrarseAqui);MOSTRADO ABAJO
   registrarseAqui.setAttribute("type", "submit");
   // Asignación del texto "registrarse" al elemento button(que queremos que diga el boton en su interior)
   registrarseAqui.textContent = "Registrarse";
@@ -59,7 +59,7 @@ export function createRegister() {
       onNavigate('/')
     })
   })
-  contenedorRegister.appendChild(botonVolver)
+  // contenedorRegister.appendChild(botonVolver) MOSTRADO ABAJO
 
   //obtener el valor mediante el event listener
   contenedorRegister.addEventListener("submit", (e) => {
@@ -77,5 +77,9 @@ export function createRegister() {
     // })
   })
 
+  contenedorRegister.appendChild(textoRegistro);
+  contenedorRegister.appendChild(logoRegistro);
+  contenedorRegister.appendChild(registrarseAqui);
+  contenedorRegister.appendChild(botonVolver);
   return contenedorRegister
 }
