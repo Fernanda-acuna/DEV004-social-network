@@ -8,16 +8,17 @@
 
 /* --------VISTA DEL INICIO------- */
 .contenedorGeneral {
+  
   margin: auto;
   display: flex;
   justify-content: center;
   position: relative;
-  background: linear-gradient(0deg, #c4f582c2 64%, #e3b386c2 97%);
+  background: white;
   height: 899px;
   width: 420px;
   padding: 10px;
   box-sizing: border-box;
-  border: 0.5px solid #000000;
+  /* border: 0.5px solid #000000; */
   border-radius: 20px;
 }
 
@@ -41,12 +42,12 @@
   color: #000000;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-color: #e86864;
+  border-color: #73a24e;
   font-size: 24px;
 }
 
 .iniciarSesionBtn:active {
-  background-color: #c4f582c2
+  background-color: #a9c25d;
 }
 
 .textoRegistro {
@@ -57,7 +58,6 @@
   position: absolute;
   font-size: 28px;
 
- 
 }
 
 .mailInput {
@@ -68,15 +68,17 @@
   background-color: white;
   color: black;
   font-size: 24px;
+  border-color: #416a59;
 
 }
+
 .txtIngresaMail {
   top: 340px;
   color: #000000;
   position: absolute;
   font-size: 28px;
   font-weight: bold;
- 
+
 }
 
 .txtIngresaClave {
@@ -85,7 +87,7 @@
   color: #000000;
   font-size: 28px;
   font-weight: bold;
- 
+
 }
 
 .claveInput {
@@ -96,9 +98,9 @@
   background-color: white;
   color: black;
   font-size: 24px;
+  border-color: #416a59;
 
 }
-
 
 .botonRegistro {
   position: absolute;
@@ -117,10 +119,10 @@
   align-items: center;
   height: 896px;
   width: 414px;
-  background: linear-gradient(0deg, #c4f582c2 64%, #e3b386c2 97%);
+  background: #f5eec2;
   box-sizing: border-box;
   position: relative;
-  border: 0.5px solid #000000;
+  /* border: 0.5px solid #000000; */
   border-radius: 20px;
 }
 
@@ -135,7 +137,7 @@
   border-radius: 4px;
   box-shadow: 0px 4px 4px #5f605f40;
   font-size: 16px;
-  border-color: #e86864;
+  border-color: #73a24e;
 
 }
 
@@ -154,7 +156,8 @@
 }
 
 .areaDelPost {
-  border-color: #e86864;
+  margin:5px;
+  border-color: #416a59;
   border-radius: 5px;
   top: 40px;
   width: 90%;
@@ -165,25 +168,59 @@
 
 }
 
-.contenedorPosts{
+.btnPublicar{
+  margin: 10px;
+  top: 300px;
+  position: absolute;
+  background-color: #fefbfb;
+  color: #000000;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-color: #416a59;
+  font-size: 24px;
+
+}
+.btnPublicar:active {
+  background-color: #c4f582c2
+}
+
+.contenedorBtns{
+ bottom: 100px;
+  padding: 20px;
+  margin: 20px;
+  width: 90%;
+  height: 100px;
+  top: 800px;
+  position: absolute;
+  border-radius: 1px;
+  background-color: white;
+  display: flex;
+
+}
+.contenedorPosts {
+  top: 400px;
+  align-items: center;
   flex-direction: column;
   overflow: auto;
-  border: 2px solid #e86864;
+  /* border: 2px solid #e86864; */
   border-radius: 3px;
-  background-color: white;
-  display:flex;
-  width: 90%;
-  height: 600px;
+  background-color: #f5eec2;
+  display: flex;
+  width: 100%;
+  height: 350px;
+  font-size: large;
 
 }
 
-.listaDePost{
-  padding: 5px;
-  
-  /* background-color:white; */
+.listaDePost {
+
+  margin: 10px;
+  padding: 8px;
   display: flex;
-  width: 80%;
-  height: 300px;
+  width: 90%;
+  height: 350px;
+  border: 1px solid #73a24e;
+  background: white;
 }
 
 /* ------VISTA DEL REGISTRO------ */
@@ -196,10 +233,10 @@
   height: 899px;
   width: 420px;
   padding: 10px;
-  background: linear-gradient(0deg, #c4f582c2 64%, #e3b386c2 97%);
+  background: white;
   box-sizing: border-box;
   position: relative;
-  border: 0.5px solid #000000;
+  /* border: 0.5px solid #000000; */
   border-radius: 20px;
 }
 
@@ -309,7 +346,7 @@
     position: absolute;
     font-size: 28px;
     font-weight: bold;
-   
+
   }
 
   .mailInput {

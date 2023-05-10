@@ -36,7 +36,7 @@ export function createHome() {
   const mailInput = document.createElement("input");
   mailInput.classList = "mailInput";
   contenedorGeneral.appendChild(mailInput);
-  mailInput.placeholder = "Email";
+  mailInput.placeholder = "ejemplo@email.com";
   mailInput.type = "email";
   mailInput.id = "emailUsuario";
 
