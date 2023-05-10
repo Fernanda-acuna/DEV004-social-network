@@ -87,7 +87,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 //  const publicaciones = (txt) => {
-//codigo maris
+// codigo maris
 // const docRef = addDoc(collection(db, "Publicacion"), {
 //   // email: "",
 //   Texto: txt
