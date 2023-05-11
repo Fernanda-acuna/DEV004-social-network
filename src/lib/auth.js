@@ -74,17 +74,11 @@ export const loginGoogle = () => {
     });
 };
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-  }
-});
+
+// Encuentra si hay usuario conectado
+export function authStateChangedEvent(cb) {
+  onAuthStateChanged(auth, (user) => cb(user));
+}
 
 //  const publicaciones = (txt) => {
 // codigo maris
@@ -109,4 +103,29 @@ export function listarPublicaciones(callback) {
   onSnapshot(queryPost, callback);
 }
 
+//borrar post del usuario loggeado
+//import { doc, updateDoc, deleteField } from "firebase/firestore";
 
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+
+export async function borrarTexto(docId) {
+  const documentRef = doc(db, "publicacion", docId);
+  
+  try {
+    await updateDoc(documentRef, {
+      text: deleteField()
+    });
+    console.log("Campo 'text' eliminado correctamente.");
+  } catch (error) {
+    console.error("Error al eliminar campo 'text':", error);
+  }
+}
+
+
+// export function borrarTexto( doc) {(db, 'publicacion', 'text')
+
+// // Remove the 'capital' field from the document
+// await updateDoc(borrarTexto, {
+//     text: deleteField()
+// });
+// )}
