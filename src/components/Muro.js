@@ -1,7 +1,7 @@
 // import { onNavigate } from "./components/main"
 
 import { doc } from "firebase/firestore/lite";
-import { addpost, borrarTexto, exit, listarPublicaciones, authStateChangedEvent } from "../lib/auth";
+import { addpost, borrarTexto, exit, listarPublicaciones } from "../lib/auth";
 import { onNavigate } from "../lib/router";
 import { addDoc, onSnapshot, orderBy, startAt } from "firebase/firestore";
 
@@ -94,50 +94,53 @@ export function muro() {
 
     listarPublicaciones((resultado) => {
         resultado.forEach((element) => {
-          // Verificar si el autor del post es el usuario actual
-          if (element.data().userId === authStateChangedEvent.currentUser) {
+            // Verificar si el autor del post es el usuario actual
+
             // Crear el artículo que mostrará el texto del post
             const showPostList = document.createElement("article");
             showPostList.classList = "listaDePost";
             showPostList.textContent = `${element.data().text} -Publicado por ${element.data().email}`;
-      
-            // Crear el botón de "Eliminar"
-            const deleteButton = document.createElement("button");
-            deleteButton.textContent = "Eliminar";
-            deleteButton.addEventListener("click", () => {
-              // Llamar a la función para eliminar el post
-              borrarTexto(element.id)
-                .then(() => {
-                  console.log("El post ha sido eliminado correctamente");
-                })
-                .catch((error) => {
-                  console.error("Error al eliminar el post:", error);
+
+            if (auth.currentUser.email === element.data().email) {
+                // Crear el botón de "Eliminar"
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Eliminar";
+                deleteButton.addEventListener("click", () => {
+                    // Llamar a la función para eliminar el post
+                    console.log(element.id);
+                    borrarTexto(element.id)
+                    
+                        .then(() => {
+                            console.log("El post ha sido eliminado correctamente");
+                        })
+                        .catch((error) => {
+                            console.error("Error al eliminar el post:", error);
+                        });
                 });
-            });
-      
-            // Agregar el botón al artículo
-            showPostList.appendChild(deleteButton);
-      
+
+                // Agregar el botón al artículo
+                showPostList.appendChild(deleteButton);
+            };
             // Agregar el artículo al contenedor de posts
             contenedorPosts.appendChild(showPostList);
-          }
+
         });
-      });
-      
+    });
 
-       // if (postEmail === currentUserEmail) {
-            //     // el post fue publicado por el usuario actual, agregar el botón de eliminar
-            //     const botonEliminar = document.createElement("button");
-            //     botonEliminar.classList = "botonEliminar";
-            //     botonEliminar.textContent = "Eliminar";
-            //     botonEliminar.addEventListener("click", () => {
-            //         eliminarPost(element.text);
-            //         showPostList.remove();
-            //     });
-            //     showPostList.appendChild(botonEliminar);
-           // }
 
-     
+    // if (postEmail === currentUserEmail) {
+    //     // el post fue publicado por el usuario actual, agregar el botón de eliminar
+    //     const botonEliminar = document.createElement("button");
+    //     botonEliminar.classList = "botonEliminar";
+    //     botonEliminar.textContent = "Eliminar";
+    //     botonEliminar.addEventListener("click", () => {
+    //         eliminarPost(element.text);
+    //         showPostList.remove();
+    //     });
+    //     showPostList.appendChild(botonEliminar);
+    // }
+
+
 
 
 

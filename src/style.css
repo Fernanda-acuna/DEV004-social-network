@@ -119,7 +119,7 @@
   align-items: center;
   height: 896px;
   width: 414px;
-  background: #f5eec2;
+  background: white;
   box-sizing: border-box;
   position: relative;
   /* border: 0.5px solid #000000; */
@@ -132,7 +132,8 @@
   display: flex;
   align-self: flex-end;
   position: absolute;
-  background-color: #eeeeee;
+  background: white;
+  /* background-color: #eeeeee; */
   color: #000000;
   border-radius: 4px;
   box-shadow: 0px 4px 4px #5f605f40;
@@ -262,7 +263,7 @@
   color: #000000;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-color: #e86864;
+  border-color:  #73a24e;
   font-size: 24px;
 
 }
@@ -273,7 +274,7 @@
 
 
 .botonGoogle {
-  color: #e86864;
+  border: 1px solid  #73a24e;
   width: 250px;
   position: absolute;
   top: 670px;
@@ -300,7 +301,7 @@
   border-radius: 4px;
   box-shadow: 0px 4px 4px #5f605f40;
   font-size: 16px;
-  border-color: #e86864;
+  border-color:  #73a24e;
 }
 
 
@@ -345,7 +346,7 @@
     color: #000000;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-color: #e86864;
+    border-color: #73a24e;
     font-size: 24px;
   }
 
@@ -446,7 +447,7 @@
     border-radius: 4px;
     box-shadow: 0px 4px 4px #5f605f40;
     font-size: 16px;
-    border-color: #e86864;
+    border-color: #73a24e;
     box-sizing: border-box;
 
   }
@@ -476,7 +477,7 @@
     color: #000000;
     border-radius: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-color: #e86864;
+    border-color: #73a24e;
     font-size: 24px;
 
   }
@@ -487,7 +488,7 @@
 
 
   .botonGoogle {
-    color: #e86864;
+    border: 1px solid #73a24e;
     width: 250px;
     position: absolute;
     top: 670px;
@@ -516,6 +517,6 @@
     border-radius: 4px;
     box-shadow: 0px 4px 4px #5f605f40;
     font-size: 16px;
-    border-color: #e86864;
+    border-color: #73a24e;
   }
 }
