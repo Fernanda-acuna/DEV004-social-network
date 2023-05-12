@@ -75,11 +75,6 @@ export const loginGoogle = () => {
 };
 
 
-// Encuentra si hay usuario conectado
-export function authStateChangedEvent(cb) {
-  onAuthStateChanged(auth, (user) => cb(user));
-}
-
 //  const publicaciones = (txt) => {
 // codigo maris
 // const docRef = addDoc(collection(db, "Publicacion"), {
@@ -106,19 +101,21 @@ export function listarPublicaciones(callback) {
 //borrar post del usuario loggeado
 //import { doc, updateDoc, deleteField } from "firebase/firestore";
 
-import { doc, updateDoc, deleteField } from "firebase/firestore";
+//import { doc, updateDoc, deleteField } from "firebase/firestore";
 
+
+//editar esta funcion y PORQUE UPDATE EL DOCUMENTO? MEJOR BORRAR EL DOCUMENTO
 export async function borrarTexto(docId) {
   const documentRef = doc(db, "publicacion", docId);
-  
-  try {
-    await updateDoc(documentRef, {
-      text: deleteField()
-    });
-    console.log("Campo 'text' eliminado correctamente.");
-  } catch (error) {
-    console.error("Error al eliminar campo 'text':", error);
-  }
+  //es mejor no manejar la promesa aqui.
+  // try {
+  //   await updateDoc(documentRef, {
+  //     text: deleteField()
+  //   });
+  //   console.log("Campo 'text' eliminado correctamente.");
+  // } catch (error) {
+  //   console.error("Error al eliminar campo 'text':", error);
+  // }
 }
 
 
