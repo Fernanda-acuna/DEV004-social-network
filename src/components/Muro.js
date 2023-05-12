@@ -6,6 +6,7 @@ import { onNavigate } from "../lib/router";
 import { addDoc, onSnapshot, orderBy, startAt } from "firebase/firestore";
 
 import { auth } from "../lib/firebase/firebase";
+import { reload } from "firebase/auth";
 const user = auth.currentUser;
 //console.log(user);
 
@@ -104,13 +105,16 @@ export function muro() {
             if (auth.currentUser.email === element.data().email) {
                 // Crear el botón de "Eliminar"
                 const deleteButton = document.createElement("button");
-                deleteButton.textContent = "Eliminar";
+                deleteButton.classList = "fa-regular fa-trash-can"
+                //codigo del icono editar
+                //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener("click", () => {
                     // Llamar a la función para eliminar el post
                     console.log(element.id);
                     borrarTexto(element.id)
-                    
                         .then(() => {
+
+                            onNavigate('/muro')
                             console.log("El post ha sido eliminado correctamente");
                         })
                         .catch((error) => {
@@ -128,33 +132,13 @@ export function muro() {
     });
 
 
-    // if (postEmail === currentUserEmail) {
-    //     // el post fue publicado por el usuario actual, agregar el botón de eliminar
-    //     const botonEliminar = document.createElement("button");
-    //     botonEliminar.classList = "botonEliminar";
-    //     botonEliminar.textContent = "Eliminar";
-    //     botonEliminar.addEventListener("click", () => {
-    //         eliminarPost(element.text);
-    //         showPostList.remove();
-    //     });
-    //     showPostList.appendChild(botonEliminar);
-    // }
-
-
-
-
-
     contenedorMuro.appendChild(btnExit);
     contenedorMuro.appendChild(logoMuro);
     contenedorMuro.appendChild(contenedorAreaPost);
     contenedorAreaPost.appendChild(areaDelPost);
     contenedorAreaPost.appendChild(botonPost);
-    //contenedorMuro.appendChild(areaDelPost);
-    //contenedorMuro.appendChild(botonPost);
     contenedorMuro.appendChild(contenedorPosts);
-    //contenedorMuro.appendChild(contenedorBtns);
-    //contenedorPosts.appendChild(showPostList);
-    //contenedorMuro.appendChild(contenedorPosts);
+
 
 
 

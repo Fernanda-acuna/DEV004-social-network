@@ -7,7 +7,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged
 } from "firebase/auth";
-import { addDoc, collection, getFirestore, query, onSnapshot, } from "firebase/firestore";
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import { onNavigate } from "../lib/router";
 
 const auth = getAuth();
@@ -106,16 +106,9 @@ export function listarPublicaciones(callback) {
 
 //editar esta funcion y PORQUE UPDATE EL DOCUMENTO? MEJOR BORRAR EL DOCUMENTO
 export async function borrarTexto(docId) {
-  const documentRef = doc(db, "publicacion", docId);
-  //es mejor no manejar la promesa aqui.
-  // try {
-  //   await updateDoc(documentRef, {
-  //     text: deleteField()
-  //   });
-  //   console.log("Campo 'text' eliminado correctamente.");
-  // } catch (error) {
-  //   console.error("Error al eliminar campo 'text':", error);
-  // }
+  console.log('DOC ID: ', docId)
+  // TODO: Averiguar cual funcion borra posts
+  await deleteDoc(doc(db, "Publicacion", docId));
 }
 
 
