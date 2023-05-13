@@ -34,13 +34,11 @@ export function muro() {
     //function AreaPost() {
     const contenedorAreaPost = document.createElement("section");
     contenedorMuro.appendChild(contenedorAreaPost);
-
+    //text area del muro
     const areaDelPost = document.createElement("textarea");
-    //const lugarDelPost = document.getElementById("registrateAqui");
     areaDelPost.className = "areaDelPost";
     areaDelPost.placeholder = "Escribe aqui...";
     areaDelPost.id = "areaDelPost";
-
 
     //CREACION DEL BOTON PUBLICAR
     const botonPost = document.createElement("button");
@@ -52,6 +50,14 @@ export function muro() {
     botonPost.addEventListener('click', () => {
         const publicacion = areaDelPost.value;
         addpost(publicacion)
+            .then(() => {
+                //se limpia mi textarea
+                areaDelPost.value = ""
+                console.log("clear textarea");
+            })
+            .catch((error) => {
+                console.error("nothing");
+            });
         console.log(addpost.publicacion)
     });
 
@@ -59,45 +65,15 @@ export function muro() {
     //  };
 
 
-    // //CREACION DEL BOTON PUBLICAR
-    // const botonPost = document.createElement("button");
-    // botonPost.type = "submit";
-    // botonPost.classList = "btnPublicar";
-    // botonPost.textContent = "Publicar";
-    // //contenedorMuro.appendChild(botonPost); MOSTRADO ABAJO
-    // botonPost.addEventListener('click', () => {
-    //     const publicacion = areaDelPost.value;
-    //     addpost(publicacion)
-    //     console.log(addpost.publicacion)
-    //     //contenedorBtns.appendChild(botonPost)
-
-    // });
-
-    //  }
 
     //llamar a la funcion en firestore, desde auth, INNERHTML<<<
     //contenedor para mostrar los post creados
     const contenedorPosts = document.createElement("section");
     contenedorPosts.classList.add("contenedorPosts");
 
-
-    // listarPublicaciones((resultado) => {
-    //     resultado.forEach(element => {
-    //         const showPostList = document.createElement("article");
-    //         showPostList.classList = "listaDePost";
-
-    //         //con los template literal puedo mostrar el texto y el email
-    //         showPostList.textContent = `${element.data().text} -Publicado por ${element.data().email}`;
-    //         //console.log(element.data());
-    //         contenedorPosts.appendChild(showPostList);
-    //     });
-    // });
-
     listarPublicaciones((resultado) => {
         resultado.forEach((element) => {
-            // Verificar si el autor del post es el usuario actual
-
-            // Crear el artículo que mostrará el texto del post
+            // Crea el artículo que mostrará el texto del post
             const showPostList = document.createElement("article");
             showPostList.classList = "listaDePost";
             showPostList.textContent = `${element.data().text} -Publicado por ${element.data().email}`;
@@ -105,7 +81,7 @@ export function muro() {
             if (auth.currentUser.email === element.data().email) {
                 // Crear el botón de "Eliminar"
                 const deleteButton = document.createElement("button");
-                deleteButton.classList = "fa-regular fa-trash-can"
+                deleteButton.classList = "fa-regular fa-trash-can";
                 //codigo del icono editar
                 //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener("click", () => {

@@ -157,7 +157,7 @@
 }
 
 .contenedorAreaPost{
-  display: grid;
+  display: inline-flex;
   grid-template-columns: 1fr auto;
   grid-gap: 10px;
   align-items: center;
@@ -166,14 +166,17 @@
 .areaDelPost {
   grid-column: 1 / span 2;
   height: 200px;
+  width: 250px;
   padding: 10px;
+  resize: none;
+  overflow: auto;
   /* display: grid;
   border-color: #416a59;
   border-radius: 5px;
   /* top: 40px; */
   /* width: 90%;
   height: 100px;
-  /* resize: none; */
+  
   /* font-size: 16px;
   outline: none;
   grid-column-start: 1;
@@ -191,6 +194,11 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 20px;
+  border: 2px solid #4CAF50;
+  background: white;
+  color: black;
+  padding: 8px;
   /* margin: 10px; */
   /* position: absolute; */
   /* background-color: #fefbfb;
@@ -429,13 +437,28 @@
     padding: 10px;
 
   }
-/* 
-  .areaDelPost {
-    border-color: #e86864;
-    border-width: 2px;
-    top: 40px;
 
-  } */
+  .areaDelPost {
+  grid-column: 1 / span 2;
+  height: 200px;
+  padding: 10px;
+  resize: none;
+  overflow: auto;
+  }
+
+  .btnPublicar{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    border: 2px solid #4CAF50;
+    background: white;
+    color: black;
+    padding: 8px;
+  }
 
   .botonSalir {
     flex-direction: row-reverse;

@@ -7,7 +7,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged
 } from "firebase/auth";
-import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, orderBy, serverTimestamp } from "firebase/firestore";
 import { onNavigate } from "../lib/router";
 
 const auth = getAuth();
@@ -89,20 +89,20 @@ export function addpost(data) {
   return addDoc(collection(db, 'Publicacion'), {
     text: data,
     email: auth.currentUser.email,
+
+    
+
   
   })
 }
 
+
 export function listarPublicaciones(callback) {
   const queryPost = query(collection(db, 'Publicacion'));
+ 
   onSnapshot(queryPost, callback);
+
 }
-
-//borrar post del usuario loggeado
-//import { doc, updateDoc, deleteField } from "firebase/firestore";
-
-//import { doc, updateDoc, deleteField } from "firebase/firestore";
-
 
 //editar esta funcion y PORQUE UPDATE EL DOCUMENTO? MEJOR BORRAR EL DOCUMENTO
 export async function borrarTexto(docId) {
