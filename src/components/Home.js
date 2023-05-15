@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { onNavigate } from "../lib/router";
 import { auth } from "/lib/firebase/firebase.js"
-import { signInWithEmail, provider, loginGoogle } from '../lib/auth'
+import { signInWithEmail, loginGoogle } from '../lib/auth'
 import { getRedirectResult } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 
@@ -83,25 +83,22 @@ export function createHome() {
   botonRegistro.id = "registrateAqui";
   botonRegistro.style.textAlign = "center";
   botonRegistro.addEventListener("click", () => {
-    const botonRegistrate = document.getElementById("registrateAqui").value;
+    //const botonRegistrate = document.getElementById("registrateAqui").value;
     onNavigate('/register')
-    
+ 
   })
 
   // Creación de un elemento button y asignación a la variable button
   const iniciarSesionBtn = document.createElement("button");
-  //quitandole el add, me funciono
   iniciarSesionBtn.classList = "iniciarSesionBtn";
   contenedorGeneral.appendChild(iniciarSesionBtn);
   // Asignación del texto "Iniciar sesión" al elemento button
   iniciarSesionBtn.textContent = "Iniciar sesión";
-
-  //obtener el valor mediante el event listener
   iniciarSesionBtn.addEventListener("click", () => {
     const email = document.getElementById("emailUsuario").value;
     const password = document.getElementById("passwordUsuario").value;
 
-    signInWithEmail(email, password).then((rep) => {
+    signInWithEmail(email, password).then(() => {
       console.log('entré')
       onNavigate('/muro')
     }).catch((err) => {

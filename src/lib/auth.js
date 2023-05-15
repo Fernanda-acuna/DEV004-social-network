@@ -7,12 +7,13 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged
 } from "firebase/auth";
-import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, orderBy, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { onNavigate } from "../lib/router";
 
 const auth = getAuth();
 const db = getFirestore();
 
+//inicia sesion con mail y clave
 export const signInWithEmail = (email, password) => {
   return signInWithEmailAndPassword(auth, email, password)
   // .then((userCredential) => {
@@ -32,12 +33,14 @@ export const signInWithEmail = (email, password) => {
 
 }
 
+//crear usuario
 export const createUser = (emailR, passwordR) => {
   return createUserWithEmailAndPassword(auth, emailR, passwordR)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       onNavigate('/muro')
+      alert('Usuario registrado con éxito')
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -49,9 +52,9 @@ export const createUser = (emailR, passwordR) => {
 }
 
 export const exit = () => signOut(auth)
-
 export const provider = new GoogleAuthProvider();
 
+//login con google
 export const loginGoogle = () => {
   return signInWithPopup(auth, provider)
     .then((result) => {
@@ -75,47 +78,32 @@ export const loginGoogle = () => {
 };
 
 
-//  const publicaciones = (txt) => {
-// codigo maris
-// const docRef = addDoc(collection(db, "Publicacion"), {
-//   // email: "",
-//   Texto: txt
-// });
-// console.log("Document written with ID: ", docRef.id);
-
-//  } codigo Glen
+//  funcion que agrega post
 export function addpost(data) {
-
   return addDoc(collection(db, 'Publicacion'), {
     text: data,
     email: auth.currentUser.email,
 
-    
-
-  
   })
 }
 
-
 export function listarPublicaciones(callback) {
   const queryPost = query(collection(db, 'Publicacion'));
- 
+
   onSnapshot(queryPost, callback);
-
 }
-
-//editar esta funcion y PORQUE UPDATE EL DOCUMENTO? MEJOR BORRAR EL DOCUMENTO
+//funcion Borrar post
 export async function borrarTexto(docId) {
   console.log('DOC ID: ', docId)
   // TODO: Averiguar cual funcion borra posts
   await deleteDoc(doc(db, "Publicacion", docId));
 }
 
-
-// export function borrarTexto( doc) {(db, 'publicacion', 'text')
-
-// // Remove the 'capital' field from the document
-// await updateDoc(borrarTexto, {
-//     text: deleteField()
-// });
-// )}
+export async function editoPost(docId) {
+  //Editar posts
+  const textoAEditar = doc(db, "Publicacion", "TlfMxrFqhbNXuOo8zKgR");
+  // console.log();
+  await updateDoc(textoAEditar, {
+    Publicacion: true
+  });
+}

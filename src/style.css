@@ -8,7 +8,7 @@
 
 /* --------VISTA DEL INICIO------- */
 .contenedorGeneral {
-  
+
   margin: auto;
   display: flex;
   justify-content: center;
@@ -122,7 +122,7 @@
   background: white;
   box-sizing: border-box;
   position: relative;
-  /* border: 0.5px solid #000000; */
+
   border-radius: 20px;
 }
 
@@ -156,11 +156,12 @@
 
 }
 
-.contenedorAreaPost{
+.contenedorAreaPost {
   display: inline-flex;
   grid-template-columns: 1fr auto;
   grid-gap: 10px;
   align-items: center;
+
 }
 
 .areaDelPost {
@@ -170,9 +171,12 @@
   padding: 10px;
   resize: none;
   overflow: auto;
-  /* display: grid;
-  border-color: #416a59;
+  outline: none;
+  border: 2px solid #416a59;
   border-radius: 5px;
+  /* display: grid;
+
+ 
   /* top: 40px; */
   /* width: 90%;
   height: 100px;
@@ -183,22 +187,22 @@
   grid-column-end: 8; */
   /* grid-row-start: 2;
   grid-row-end: 4; */
-  /* gap: 10px; */ 
+  /* gap: 10px; */
 
 }
 
-.btnPublicar{
+.btnPublicar {
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
   font-size: 20px;
   border: 2px solid #4CAF50;
   background: white;
   color: black;
   padding: 8px;
+  box-shadow: 0px 4px 4px #5f605f40;
   /* margin: 10px; */
   /* position: absolute; */
   /* background-color: #fefbfb;
@@ -214,9 +218,9 @@
   justify-self: end; */
 
 }
-.btnPublicar:hover {
-  background-color: #3e8e41;
-  /* background-color: #c4f582c2 */
+
+.btnPublicar:active {
+  background-color: #c4f582c2;
 }
 
 .contenedorPosts {
@@ -245,6 +249,11 @@
   background: white;
 }
 
+.botonEditar{
+  border-radius: 3px;
+  border: 3px solid red;
+}
+
 /* ------VISTA DEL REGISTRO------ */
 .contenedorRegister {
   margin: auto;
@@ -271,7 +280,7 @@
   color: #000000;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-color:  #73a24e;
+  border-color: #73a24e;
   font-size: 24px;
 
 }
@@ -282,7 +291,7 @@
 
 
 .botonGoogle {
-  border: 1px solid  #73a24e;
+  border: 1px solid #73a24e;
   width: 250px;
   position: absolute;
   top: 670px;
@@ -309,7 +318,7 @@
   border-radius: 4px;
   box-shadow: 0px 4px 4px #5f605f40;
   font-size: 16px;
-  border-color:  #73a24e;
+  border-color: #73a24e;
 }
 
 
@@ -439,14 +448,15 @@
   }
 
   .areaDelPost {
-  grid-column: 1 / span 2;
-  height: 200px;
-  padding: 10px;
-  resize: none;
-  overflow: auto;
+    grid-column: 1 / span 2;
+    height: 200px;
+    padding: 10px;
+    resize: none;
+    overflow: auto;
+    border-radius: 5px;
   }
 
-  .btnPublicar{
+  .btnPublicar {
     padding: 10px 20px;
     background-color: #4CAF50;
     color: white;
@@ -458,6 +468,11 @@
     background: white;
     color: black;
     padding: 8px;
+    box-shadow: 0px 4px 4px #5f605f40;
+  }
+
+  .btnPublicar:active {
+    background-color: #c4f582c2;
   }
 
   .botonSalir {
