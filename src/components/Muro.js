@@ -1,12 +1,11 @@
 // import { onNavigate } from "./components/main"
 
 import { doc } from "firebase/firestore/lite";
-import { addpost, borrarTexto, exit, listarPublicaciones } from "../lib/auth";
+import { addpost, borrarTexto, exit, listarPublicaciones, editoPost} from "../lib/auth";
 import { onNavigate } from "../lib/router";
 import { addDoc, onSnapshot, orderBy, startAt } from "firebase/firestore";
 
 import { auth } from "../lib/firebase/firebase";
-import { reload } from "firebase/auth";
 const user = auth.currentUser;
 //console.log(user);
 
@@ -31,7 +30,6 @@ export function muro() {
     // contenedorMuro.appendChild(logoMuro); MOSTRADO ABAJO
 
     // input del texto/post
-    //function AreaPost() {
     const contenedorAreaPost = document.createElement("section");
     contenedorMuro.appendChild(contenedorAreaPost);
     //text area del muro
@@ -64,9 +62,6 @@ export function muro() {
     contenedorMuro.appendChild(areaDelPost);
     //  };
 
-
-
-    //llamar a la funcion en firestore, desde auth, INNERHTML<<<
     //contenedor para mostrar los post creados
     const contenedorPosts = document.createElement("section");
     contenedorPosts.classList.add("contenedorPosts");
@@ -97,9 +92,26 @@ export function muro() {
                             console.error("Error al eliminar el post:", error);
                         });
                 });
+                const botonEditar = document.createElement("button");
+                botonEditar.classList= "fa-regular fa-pen-to-square";
+               //botonEditar = document.querySelector(".showPostList");
+                botonEditar.addEventListener("click", () => {
+                    editoPost(element.id)
+                    
+                        .then(() => {
+                            onNavigate('/muro')
+                            console.log("El post ha sido actualizado");
+                        })
+                        .catch((error) => {
+                            console.log("error al actualizar:", error);
+                        })
+                        console.log(editoPost);
+                })
+
 
                 // Agregar el botón al artículo
                 showPostList.appendChild(deleteButton);
+                showPostList.appendChild(botonEditar);
             };
             // Agregar el artículo al contenedor de posts
             contenedorPosts.appendChild(showPostList);
@@ -107,16 +119,11 @@ export function muro() {
         });
     });
 
-
     contenedorMuro.appendChild(btnExit);
     contenedorMuro.appendChild(logoMuro);
     contenedorMuro.appendChild(contenedorAreaPost);
     contenedorAreaPost.appendChild(areaDelPost);
     contenedorAreaPost.appendChild(botonPost);
     contenedorMuro.appendChild(contenedorPosts);
-
-
-
-
     return contenedorMuro
 }
