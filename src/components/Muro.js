@@ -102,7 +102,6 @@ export function muro() {
                 //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener("click", () => {
                     // Llamar a la función para eliminar el post
-                    // console.log(element.id);
                     borrarTexto(element.id)
                         .then(() => {
 
@@ -124,15 +123,9 @@ export function muro() {
                     contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
 
 
-                    // Example usage: Call toggleEditArea() when a button is clicked
-                    // const button = document.createElement("button");
-                    // button.textContent = "Edit";
-                    // button.addEventListener("click", toggleEditArea);
-                    // contieneTextoEditar.appendChild(button);
                 });
                 const botonGuardar = document.createElement("button");
-                botonGuardar.classList = "botonGuardar";
-                botonGuardar.textContent = "Guardar";
+                botonGuardar.classList = "fa-solid fa-circle-check";
                 contieneTextoEditar.appendChild(botonGuardar);
                 botonGuardar.addEventListener('click', () => {
                     editoPost(element.id)
