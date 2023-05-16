@@ -101,7 +101,7 @@ export async function borrarTexto(docId) {
 
 export async function editoPost(docId) {
   //Editar posts
-  const textoAEditar = doc(db, "Publicacion", "TlfMxrFqhbNXuOo8zKgR");
+  const textoAEditar = doc(db, "Publicacion", docId);
   // console.log();
   await updateDoc(textoAEditar, {
     Publicacion: true

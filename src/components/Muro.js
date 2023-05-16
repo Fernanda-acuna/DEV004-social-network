@@ -1,9 +1,9 @@
 // import { onNavigate } from "./components/main"
 
 import { doc } from "firebase/firestore/lite";
-import { addpost, borrarTexto, exit, listarPublicaciones, editoPost} from "../lib/auth";
+import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from "../lib/auth";
 import { onNavigate } from "../lib/router";
-import { addDoc, onSnapshot, orderBy, startAt } from "firebase/firestore";
+import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from "firebase/firestore";
 
 import { auth } from "../lib/firebase/firebase";
 const user = auth.currentUser;
@@ -30,8 +30,9 @@ export function muro() {
     // contenedorMuro.appendChild(logoMuro); MOSTRADO ABAJO
 
     // input del texto/post
-    const contenedorAreaPost = document.createElement("section");
-    contenedorMuro.appendChild(contenedorAreaPost);
+    const contenedorAreaPost = document.createElement("div");
+    contenedorAreaPost.classList = "ContenedorAreaPost";
+    // contenedorMuro.appendChild(contenedorAreaPost);MOSTRADO ABAJO
     //text area del muro
     const areaDelPost = document.createElement("textarea");
     areaDelPost.className = "areaDelPost";
@@ -40,7 +41,7 @@ export function muro() {
 
     //CREACION DEL BOTON PUBLICAR
     const botonPost = document.createElement("button");
-    botonPost.id = "botonPost";
+    // botonPost.id = "botonPost";
     botonPost.classList = "btnPublicar";
     botonPost.textContent = "Publicar";
     botonPost.setAttribute("type", "submit")
@@ -59,7 +60,7 @@ export function muro() {
         console.log(addpost.publicacion)
     });
 
-    contenedorMuro.appendChild(areaDelPost);
+    // contenedorAreaPost.appendChild(botonPost);
     //  };
 
     //contenedor para mostrar los post creados
@@ -73,15 +74,35 @@ export function muro() {
             showPostList.classList = "listaDePost";
             showPostList.textContent = `${element.data().text} -Publicado por ${element.data().email}`;
 
+
+            // //edicion del post
+            // const contieneTextoEditar = document.createElement("div");
+            // contieneTextoEditar.classList = "parrEditar";
+            // const areaEdita = document.createElement("textArea");
+            // areaEdita.classList = "areaEdita";
+            // areaEdita.value = `${element.data().text}`;
+            // areaEdita.style.display = "none";
+            // contieneTextoEditar.appendChild(areaEdita);
+            //edicion del post
+
+            //creo un div para el input de edicion
+            const contieneTextoEditar = document.createElement("div");
+            contieneTextoEditar.classList = "parrEditar";
+            // creo la textarea para el texto en edicion
+            const areaEdita = document.createElement("textarea");
+            areaEdita.classList = "areaEdita";
+            areaEdita.value = element.data().text;
+            areaEdita.style.display = "none";
+            contieneTextoEditar.appendChild(areaEdita);
+
             if (auth.currentUser.email === element.data().email) {
                 // Crear el botón de "Eliminar"
                 const deleteButton = document.createElement("button");
                 deleteButton.classList = "fa-regular fa-trash-can";
-                //codigo del icono editar
                 //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener("click", () => {
                     // Llamar a la función para eliminar el post
-                    console.log(element.id);
+                    // console.log(element.id);
                     borrarTexto(element.id)
                         .then(() => {
 
@@ -93,20 +114,42 @@ export function muro() {
                         });
                 });
                 const botonEditar = document.createElement("button");
-                botonEditar.classList= "fa-regular fa-pen-to-square";
-               //botonEditar = document.querySelector(".showPostList");
+                botonEditar.classList = "fa-regular fa-pen-to-square";
+                //botonEditar = document.querySelector(".showPostList");
                 botonEditar.addEventListener("click", () => {
                     editoPost(element.id)
-                    
+                    console.log("dentro de botonEditar");
+                    contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
+                    areaEdita.style.display = "block";
+                    contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
+
+
+                    // Example usage: Call toggleEditArea() when a button is clicked
+                    // const button = document.createElement("button");
+                    // button.textContent = "Edit";
+                    // button.addEventListener("click", toggleEditArea);
+                    // contieneTextoEditar.appendChild(button);
+                });
+                const botonGuardar = document.createElement("button");
+                botonGuardar.classList = "botonGuardar";
+                botonGuardar.textContent = "Guardar";
+                contieneTextoEditar.appendChild(botonGuardar);
+                botonGuardar.addEventListener('click', () => {
+                    editoPost(element.id)
+                    console.log("dentro de botonGuardar")
                         .then(() => {
-                            onNavigate('/muro')
+                            contieneTextoEditar.removeChild(contieneTextoEditar.firstChild)
+
+                            // onNavigate('/muro')
                             console.log("El post ha sido actualizado");
                         })
                         .catch((error) => {
-                            console.log("error al actualizar:", error);
+                            console.error("error al actualizar:", error)
                         })
-                        console.log(editoPost);
-                })
+                    // console.log(editoPost);
+                });
+                contieneTextoEditar.appendChild(botonGuardar)
+                contenedorPosts.appendChild(contieneTextoEditar)
 
 
                 // Agregar el botón al artículo
