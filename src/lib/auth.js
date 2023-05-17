@@ -6,9 +6,10 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
-import { onNavigate } from './router/index';
-import { auth, db} from '../lib/firebase/firebase';
+
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+
+import { onNavigate } from '../lib/router';
 
 // const auth = getAuth();
 // const db = getFirestore();
@@ -96,10 +97,12 @@ export async function borrarTexto(docId) {
   console.log('DOC ID: ', docId);
   // TODO: Averiguar cual funcion borra posts
   await deleteDoc(doc(db, 'Publicacion', docId));
+  await deleteDoc(doc(db, 'Publicacion', docId));
 }
 
 export async function editoPost(docId) {
   //Editar posts
+  const textoAEditar = doc(db, 'Publicacion', docId);
   const textoAEditar = doc(db, 'Publicacion', docId);
   // console.log();
   await updateDoc(textoAEditar, {
