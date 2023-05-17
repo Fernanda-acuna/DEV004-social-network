@@ -97,9 +97,6 @@ export function createHome() {
   botonRegistro.id = 'registrateAqui';
   botonRegistro.style.textAlign = 'center';
   botonRegistro.addEventListener('click', () => {
-  botonRegistro.id = 'registrateAqui';
-  botonRegistro.style.textAlign = 'center';
-  botonRegistro.addEventListener('click', () => {
     //const botonRegistrate = document.getElementById("registrateAqui").value;
     onNavigate('/register');
   });

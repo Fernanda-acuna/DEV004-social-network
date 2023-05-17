@@ -73,7 +73,7 @@ export function muro() {
                 areaDelPost.value = '';
                 console.log('clear textarea');
             })
-            .catch((error) => {
+            .catch(() => {
                 console.error('nothing');
             });
         console.log(addpost.publicacion);
