@@ -5,10 +5,9 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged
-} from "firebase/auth";
+} from 'firebase/auth';
 import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
-import { onNavigate } from "../lib/router";
+import { onNavigate } from './router';
 
 const auth = getAuth();
 const db = getFirestore();
@@ -51,7 +50,7 @@ export const createUser = (emailR, passwordR) => {
     });
 }
 
-export const exit = () => signOut(auth)
+export const exit = () => signOut(auth);
 export const provider = new GoogleAuthProvider();
 
 //login con google
@@ -96,12 +95,12 @@ export function listarPublicaciones(callback) {
 export async function borrarTexto(docId) {
   console.log('DOC ID: ', docId)
   // TODO: Averiguar cual funcion borra posts
-  await deleteDoc(doc(db, "Publicacion", docId));
+  await deleteDoc(doc(db, 'Publicacion', docId));
 }
 
 export async function editoPost(docId) {
   //Editar posts
-  const textoAEditar = doc(db, "Publicacion", docId);
+  const textoAEditar = doc(db, 'Publicacion', docId);
   // console.log();
   await updateDoc(textoAEditar, {
     Publicacion: true
