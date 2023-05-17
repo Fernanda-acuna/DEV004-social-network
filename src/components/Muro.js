@@ -4,9 +4,7 @@ import { onNavigate } from '../lib/router/index';
 import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
 import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../lib/auth';
-
 import { onNavigate } from '../lib/router';
-import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
 import { auth } from '../lib/firebase/firebase';
 import { auth } from '../lib/firebase/firebase';
@@ -77,7 +75,7 @@ export function muro() {
                 areaDelPost.value = '';
                 console.log('clear textarea');
             })
-            .catch(() => {
+            .catch((error) => {
                 console.error('nothing');
             });
         console.log(addpost.publicacion);
