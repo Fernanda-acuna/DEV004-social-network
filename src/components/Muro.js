@@ -1,9 +1,7 @@
 // import { onNavigate } from "./components/main"
 
 import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../lib/auth';
-
 import { onNavigate } from '../lib/router';
-import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
 import { auth } from '../lib/firebase/firebase';
 const user = auth.currentUser;
@@ -54,10 +52,10 @@ export function muro() {
                 areaDelPost.value = '';
                 console.log('clear textarea');
             })
-            .catch(() => {
+            .catch((error) => {
                 console.error('nothing');
             });
-        console.log(addpost.publicacion)
+        console.log(addpost.publicacion);
     });
 
     // contenedorAreaPost.appendChild(botonPost);

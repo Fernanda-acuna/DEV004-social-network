@@ -52,7 +52,7 @@ export const createUser = (emailR, passwordR) => {
     });
 }
 
-export const exit = () => signOut(auth)
+export const exit = () => signOut(auth);
 export const provider = new GoogleAuthProvider();
 
 //login con google
