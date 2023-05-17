@@ -4,6 +4,7 @@ import { onNavigate } from '../lib/router/index';
 import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
 import { auth } from '../lib/firebase/firebase';
+import { auth } from '../lib/firebase/firebase';
 
 const user = auth.currentUser;
 //console.log(user);
@@ -68,7 +69,7 @@ export function muro() {
                 areaDelPost.value = '';
                 console.log('clear textarea');
             })
-            .catch((error) => {
+            .catch(() => {
                 console.error('nothing');
             });
         console.log(addpost.publicacion);

@@ -94,9 +94,9 @@ export function createHome() {
   botonRegistro.classList.add('botonRegistro');
   botonRegistro.innerHTML = '¿No tienes una cuenta? <a href="#">Regístrate</a>.';
   contenedorGeneral.appendChild(botonRegistro);
-  botonRegistro.id = "registrateAqui";
-  botonRegistro.style.textAlign = "center";
-  botonRegistro.addEventListener("click", () => {
+  botonRegistro.id = 'registrateAqui';
+  botonRegistro.style.textAlign = 'center';
+  botonRegistro.addEventListener('click', () => {
     //const botonRegistrate = document.getElementById("registrateAqui").value;
     onNavigate('/register')
  
