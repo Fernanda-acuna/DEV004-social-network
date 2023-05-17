@@ -1,8 +1,11 @@
 // import { onNavigate } from "./components/main"
 
 import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../lib/auth';
-import { onNavigate } from '../lib/router';
 
+import { onNavigate } from '../lib/router';
+import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
+
+import { auth } from '../lib/firebase/firebase';
 import { auth } from '../lib/firebase/firebase';
 const user = auth.currentUser;
 //console.log(user);
@@ -10,9 +13,12 @@ const user = auth.currentUser;
 export function muro() {
     const contenedorMuro = document.createElement('section');
     contenedorMuro.classList.add('contenedorMuro');
+    const contenedorMuro = document.createElement('section');
+    contenedorMuro.classList.add('contenedorMuro');
 
     //boton para cerrar la sesion
     const btnExit = document.createElement('button');
+    btnExit.classList = 'botonSalir';
     btnExit.classList = 'botonSalir';
     btnExit.textContent = 'Cerrar sesión';
     btnExit.addEventListener('click', () => {
@@ -25,9 +31,14 @@ export function muro() {
     const logoMuro = document.createElement('img');
     logoMuro.classList.add('logoMarchantesMuro');
     logoMuro.src = '../imagenes/logo-marchantes.png';
+    const logoMuro = document.createElement('img');
+    logoMuro.classList.add('logoMarchantesMuro');
+    logoMuro.src = '../imagenes/logo-marchantes.png';
     // contenedorMuro.appendChild(logoMuro); MOSTRADO ABAJO
 
     // input del texto/post
+    const contenedorAreaPost = document.createElement('div');
+    contenedorAreaPost.classList = 'ContenedorAreaPost';
     const contenedorAreaPost = document.createElement('div');
     contenedorAreaPost.classList = 'ContenedorAreaPost';
     // contenedorMuro.appendChild(contenedorAreaPost);MOSTRADO ABAJO
@@ -36,8 +47,13 @@ export function muro() {
     areaDelPost.className = 'areaDelPost';
     areaDelPost.placeholder = 'Escribe aqui...';
     areaDelPost.id = 'areaDelPost';
+    const areaDelPost = document.createElement('textarea');
+    areaDelPost.className = 'areaDelPost';
+    areaDelPost.placeholder = 'Escribe aqui...';
+    areaDelPost.id = 'areaDelPost';
 
     //CREACION DEL BOTON PUBLICAR
+    const botonPost = document.createElement('button');
     const botonPost = document.createElement('button');
     // botonPost.id = "botonPost";
     botonPost.classList = 'btnPublicar';
@@ -51,8 +67,10 @@ export function muro() {
                 //se limpia mi textarea
                 areaDelPost.value = '';
                 console.log('clear textarea');
+                areaDelPost.value = '';
+                console.log('clear textarea');
             })
-            .catch((error) => {
+            .catch(() => {
                 console.error('nothing');
             });
         console.log(addpost.publicacion);
@@ -64,10 +82,14 @@ export function muro() {
     //contenedor para mostrar los post creados
     const contenedorPosts = document.createElement('section');
     contenedorPosts.classList.add('contenedorPosts');
+    const contenedorPosts = document.createElement('section');
+    contenedorPosts.classList.add('contenedorPosts');
 
     listarPublicaciones((resultado) => {
         resultado.forEach((element) => {
             // Crea el artículo que mostrará el texto del post
+            const showPostList = document.createElement('article');
+            showPostList.classList = 'listaDePost';
             const showPostList = document.createElement('article');
             showPostList.classList = 'listaDePost';
             showPostList.textContent = `${element.data().text} -Publicado por ${element.data().email}`;
@@ -86,10 +108,15 @@ export function muro() {
             //creo un div para el input de edicion
             const contieneTextoEditar = document.createElement('div');
             contieneTextoEditar.classList = 'parrEditar';
+            const contieneTextoEditar = document.createElement('div');
+            contieneTextoEditar.classList = 'parrEditar';
             // creo la textarea para el texto en edicion
             const areaEdita = document.createElement('textarea');
             areaEdita.classList = 'areaEdita';
+            const areaEdita = document.createElement('textarea');
+            areaEdita.classList = 'areaEdita';
             areaEdita.value = element.data().text;
+            areaEdita.style.display = 'none';
             areaEdita.style.display = 'none';
             contieneTextoEditar.appendChild(areaEdita);
 
@@ -99,6 +126,7 @@ export function muro() {
                 deleteButton.classList = 'fa-regular fa-trash-can';
                 //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener('click', () => {
+                deleteButton.addEventListener('click', () => {
                     // Llamar a la función para eliminar el post
                     borrarTexto(element.id)
                         .then(() => {
@@ -106,6 +134,7 @@ export function muro() {
                             console.log('El post ha sido eliminado correctamente');
                         })
                         .catch((error) => {
+                            console.error('Error al eliminar el post:', error);
                             console.error('Error al eliminar el post:', error);
                         });
                 });
@@ -116,6 +145,7 @@ export function muro() {
                     editoPost(element.id);
                     console.log('dentro de botonEditar');
                     contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
+                    areaEdita.style.display = 'block';
                     areaEdita.style.display = 'block';
                     contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
                 });
