@@ -5,10 +5,11 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-  onAuthStateChanged
-} from "firebase/auth";
-import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
-import { onNavigate } from "../lib/router";
+} from 'firebase/auth';
+
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+
+import { onNavigate } from '../lib/router';
 
 const auth = getAuth();
 const db = getFirestore();
@@ -77,14 +78,13 @@ export const loginGoogle = () => {
     });
 };
 
-
 //  funcion que agrega post
 export function addpost(data) {
   return addDoc(collection(db, 'Publicacion'), {
     text: data,
     email: auth.currentUser.email,
 
-  })
+  });
 }
 
 export function listarPublicaciones(callback) {
@@ -94,16 +94,16 @@ export function listarPublicaciones(callback) {
 }
 //funcion Borrar post
 export async function borrarTexto(docId) {
-  console.log('DOC ID: ', docId)
+  console.log('DOC ID: ', docId);
   // TODO: Averiguar cual funcion borra posts
-  await deleteDoc(doc(db, "Publicacion", docId));
+  await deleteDoc(doc(db, 'Publicacion', docId));
 }
 
 export async function editoPost(docId) {
   //Editar posts
-  const textoAEditar = doc(db, "Publicacion", docId);
+  const textoAEditar = doc(db, 'Publicacion', docId);
   // console.log();
   await updateDoc(textoAEditar, {
-    Publicacion: true
+    Publicacion: true,
   });
 }
