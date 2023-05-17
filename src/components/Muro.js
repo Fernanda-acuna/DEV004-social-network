@@ -3,12 +3,6 @@ import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../l
 import { onNavigate } from '../lib/router/index';
 import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
-=======
-
-import { onNavigate } from '../lib/router';
-import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
-
->>>>>>> 84ebfe6 ('cambios con jest')
 import { auth } from '../lib/firebase/firebase';
 import { auth } from '../lib/firebase/firebase';
 
@@ -170,6 +164,35 @@ export function muro() {
                 botonGuardar.style.display = 'none';
                 contieneTextoEditar.appendChild(botonGuardar);
                 botonGuardar.addEventListener('click', () => {
+                    editoPost(element.id)
+                    areaEdita.value = showPostList;
+                    //console.log("dentro de botonGuardar")
+                    // contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
+                    // areaEdita.style.display = "block";
+                    // contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild)
+
+                    try {
+                        contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
+                        botonGuardar.style.display = 'block';
+                        //contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
+
+                        // contieneTextoEditar.removeChild(contieneTextoEditar.firstChild)
+
+                        //onNavigate('/muro')
+                        console.log('El post ha sido actualizado');
+                    } catch (error) {
+                        console.error('error al actualizar:', error);
+                    }
+
+                    //  console.log(editoPost);
+                });
+                contieneTextoEditar.appendChild(botonGuardar);
+                contenedorPosts.appendChild(contieneTextoEditar);
+
+=======
+                botonGuardar.classList = 'fa-solid fa-circle-check';
+                contieneTextoEditar.appendChild(botonGuardar);
+                botonGuardar.addEventListener('click', () => {
                     editoPost(element.id);
                     console.log('dentro de botonGuardar')
                         .then(() => {
@@ -185,7 +208,7 @@ export function muro() {
                 });
                 contieneTextoEditar.appendChild(botonGuardar);
                 contenedorPosts.appendChild(contieneTextoEditar);
-
+>>>>>>> 84ebfe6 ('cambios con jest')
 
                 // Agregar el botón al artículo
                 showPostList.appendChild(deleteButton);
