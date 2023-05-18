@@ -3,6 +3,12 @@ import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../l
 import { onNavigate } from '../lib/router/index';
 import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
+=======
+
+import { onNavigate } from '../lib/router';
+import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
+
+>>>>>>> 84ebfe6 ('cambios con jest')
 import { auth } from '../lib/firebase/firebase';
 
 const user = auth.currentUser;
@@ -56,7 +62,7 @@ export function muro() {
     // botonPost.id = "botonPost";
     botonPost.classList = 'btnPublicar';
     botonPost.textContent = 'Publicar';
-    botonPost.setAttribute('type', 'submit');
+    botonPost.setAttribute('type', 'submit')
     //contenedorMuro.appendChild(botonPost); MOSTRADO ABAJO
     botonPost.addEventListener('click', () => {
         const publicacion = areaDelPost.value;
@@ -68,7 +74,7 @@ export function muro() {
                 areaDelPost.value = '';
                 console.log('clear textarea');
             })
-            .catch(() => {
+            .catch((error) => {
                 console.error('nothing');
             });
         console.log(addpost.publicacion);
@@ -121,14 +127,15 @@ export function muro() {
             if (auth.currentUser.email === element.data().email) {
                 // Crear el botón de "Eliminar"
                 const deleteButton = document.createElement('button');
-                deleteButton.classList = 'fa-regular fa-trash-can';
+                deleteButton.classList = "fa-regular fa-trash-can";
                 //deleteButton.textContent = "Eliminar";
                 deleteButton.addEventListener('click', () => {
                 deleteButton.addEventListener('click', () => {
                     // Llamar a la función para eliminar el post
                     borrarTexto(element.id)
                         .then(() => {
-                            onNavigate('/muro');
+
+                            onNavigate('/muro')
                             console.log('El post ha sido eliminado correctamente');
                         })
                         .catch((error) => {
@@ -137,10 +144,10 @@ export function muro() {
                         });
                 });
                 const botonEditar = document.createElement('button');
-                botonEditar.classList = 'fa-regular fa-pen-to-square';
+                botonEditar.classList = "fa-regular fa-pen-to-square";
                 //botonEditar = document.querySelector(".showPostList");
                 botonEditar.addEventListener('click', () => {
-                    editoPost(element.id);
+                    editoPost(element.id)
                     console.log('dentro de botonEditar');
                     contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
                     areaEdita.style.display = 'block';
@@ -148,7 +155,8 @@ export function muro() {
                     contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
                 });
                 const botonGuardar = document.createElement('button');
-                botonGuardar.classList = 'fa-solid fa-circle-check';
+                botonGuardar.classList = "fa-solid fa-circle-check";
+                botonGuardar.style.display = 'none';
                 contieneTextoEditar.appendChild(botonGuardar);
                 botonGuardar.addEventListener('click', () => {
                     editoPost(element.id);
@@ -166,6 +174,7 @@ export function muro() {
                 });
                 contieneTextoEditar.appendChild(botonGuardar);
                 contenedorPosts.appendChild(contieneTextoEditar);
+
 
                 // Agregar el botón al artículo
                 showPostList.appendChild(deleteButton);
