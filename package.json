@@ -46,6 +46,7 @@
     "commit": "36bf90dc273bab8ffe9546b09eece6a132f8a669"
   },
   "dependencies": {
+    "@firebase/app": "^0.9.10",
     "eslint-config-airbnb": "^19.0.4",
     "firebase": "^9.19.1"
   }
