@@ -6,13 +6,12 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
+import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { onNavigate } from './router/index';
+import { auth, db} from '../lib/firebase/firebase';
 
-import { addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
-
-import { onNavigate } from '../lib/router';
-
-const auth = getAuth();
-const db = getFirestore();
+// const auth = getAuth();
+// const db = getFirestore();
 
 //inicia sesion con mail y clave
 export const signInWithEmail = (email, password) => {
