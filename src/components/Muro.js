@@ -1,12 +1,10 @@
-// import { onNavigate } from "./components/main"
-
 import { addpost, borrarTexto, exit, listarPublicaciones, editoPost } from '../lib/auth';
 
-import { onNavigate } from '../lib/router';
+import { onNavigate } from '../lib/router/index';
 import { addDoc, arrayRemove, onSnapshot, orderBy, startAt } from 'firebase/firestore';
 
 import { auth } from '../lib/firebase/firebase';
-import { auth } from '../lib/firebase/firebase';
+
 const user = auth.currentUser;
 //console.log(user);
 
