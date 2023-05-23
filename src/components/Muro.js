@@ -69,6 +69,8 @@ export function muro() {
   contenedorPosts.classList.add('contenedorPosts');
 
   listarPublicaciones((resultado) => {
+    console.log("dibujando");
+    contenedorPosts.innerHTML = ''
     resultado.forEach((element) => {
       // Crea el artículo que mostrará el texto del post
       const showPostList = document.createElement('article');
@@ -103,11 +105,10 @@ export function muro() {
         });
         const botonEditar = document.createElement('button');
         botonEditar.classList = 'fa-regular fa-pen-to-square';
-        // botonEditar = document.querySelector(".showPostList");
         const botonGuardar = document.createElement('button');
 
         botonEditar.addEventListener('click', () => {
-          editoPost(element.id);
+          //editoPost(element.id);
           console.log('dentro de botonEditar');
           contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
           areaEdita.style.display = 'block';
@@ -118,21 +119,14 @@ export function muro() {
         botonGuardar.style.display = 'none';
         contieneTextoEditar.appendChild(botonGuardar);
         botonGuardar.addEventListener('click', () => {
-          editoPost(element.id);
-          areaEdita.value = showPostList;
-          // console.log("dentro de botonGuardar")
-          // contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
-          // areaEdita.style.display = "block";
-          // contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild)
+          //editoPost(element.id);
+          const actualizarPost = areaEdita.value;
+          editoPost(element.id, actualizarPost);
+          //areaEdita.value = showPostList;
 
           try {
             contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
-            botonGuardar.style.display = 'block';
-            // contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
-
-            // contieneTextoEditar.removeChild(contieneTextoEditar.firstChild)
-
-            // onNavigate('/muro')
+            botonGuardar.style.display = 'none';
             console.log('El post ha sido actualizado');
           } catch (error) {
             console.error('error al actualizar:', error);
