@@ -69,8 +69,8 @@ export function muro() {
   contenedorPosts.classList.add('contenedorPosts');
 
   listarPublicaciones((resultado) => {
-    console.log("dibujando");
-    contenedorPosts.innerHTML = ''
+    console.log('dibujando');
+    contenedorPosts.innerHTML = '';
     resultado.forEach((element) => {
       // Crea el artículo que mostrará el texto del post
       const showPostList = document.createElement('article');
@@ -108,7 +108,7 @@ export function muro() {
         const botonGuardar = document.createElement('button');
 
         botonEditar.addEventListener('click', () => {
-          //editoPost(element.id);
+          // editoPost(element.id);
           console.log('dentro de botonEditar');
           contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
           areaEdita.style.display = 'block';
@@ -119,10 +119,10 @@ export function muro() {
         botonGuardar.style.display = 'none';
         contieneTextoEditar.appendChild(botonGuardar);
         botonGuardar.addEventListener('click', () => {
-          //editoPost(element.id);
+          // editoPost(element.id);
           const actualizarPost = areaEdita.value;
           editoPost(element.id, actualizarPost);
-          //areaEdita.value = showPostList;
+          // areaEdita.value = showPostList;
 
           try {
             contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);

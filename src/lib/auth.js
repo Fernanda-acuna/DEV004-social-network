@@ -43,7 +43,6 @@ export const createUser = (emailR, passwordR) => createUserWithEmailAndPassword(
     alert('Usuario registrado con éxito');
   })
   .catch((error) => {
-    const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorMessage);
     alert('Verifica los datos, fue imposible registrarte');

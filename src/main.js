@@ -1,16 +1,16 @@
-//Este es el punto de entrada de tu aplicacion
+// Este es el punto de entrada de tu aplicacion
 
-import { addRoutes, onNavigate } from "./lib/router/index.js";
-import { createHome } from "./components/Home";
-import { Login } from "./components/Login";
-import { createRegister } from "./components/Register";
-import { muro } from "./components/Muro.js";
+import { addRoutes, onNavigate } from './lib/router/index.js';
+import { createHome } from './components/Home';
+import { Login } from './components/Login';
+import { createRegister } from './components/Register';
+import { muro } from './components/Muro.js';
 
 addRoutes({
-  "/": createHome,
+  '/': createHome,
   // "/Login": Login,no es necesario
-  "/register": createRegister,
-  "/muro": muro,
+  '/register': createRegister,
+  '/muro': muro,
 });
 
 window.onload = () => {

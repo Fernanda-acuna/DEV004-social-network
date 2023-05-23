@@ -16,13 +16,11 @@ export function createHome() {
   logo.src = '../imagenes/logo-marchantes.png';
   contenedorGeneral.appendChild(logo);
 
-
-  //TEXTO PARA ingresar clave en EL INPUT DEL MAIL
+  // TEXTO PARA ingresar clave en EL INPUT DEL MAIL
   const txtIngresaMail = document.createElement('p');
   txtIngresaMail.classList = 'txtIngresaMail';
   txtIngresaMail.textContent = 'Ingresa tu mail';
   contenedorGeneral.appendChild(txtIngresaMail);
-
 
   // input del mail en inicio
   const mailInput = document.createElement('input');
@@ -32,15 +30,13 @@ export function createHome() {
   mailInput.type = 'email';
   mailInput.id = 'emailUsuario';
 
-
-  //TEXTO DE INGRESAR CLAVE EN INPUT
+  // TEXTO DE INGRESAR CLAVE EN INPUT
   const txtIngresaClave = document.createElement('p');
   txtIngresaClave.classList = 'txtIngresaClave';
   txtIngresaClave.textContent = 'Ingresa tu clave';
   contenedorGeneral.appendChild(txtIngresaClave);
 
-
-  //input de la clave
+  // input de la clave
   const claveInput = document.createElement('input');
   claveInput.classList = 'claveInput';
   contenedorGeneral.appendChild(claveInput);
@@ -48,7 +44,7 @@ export function createHome() {
   claveInput.type = 'password';
   claveInput.id = 'passwordUsuario';
 
-  //BOTON PARA INICIAR SESION CON GOOGLE
+  // BOTON PARA INICIAR SESION CON GOOGLE
   const botonGoogle = document.createElement('img');
   botonGoogle.classList = 'botonGoogle';
   contenedorGeneral.appendChild(botonGoogle);
@@ -58,14 +54,11 @@ export function createHome() {
   botonGoogle.addEventListener('click', () => {
     loginGoogle()
       .then((rep) => {
-        onNavigate('/muro')
-
+        onNavigate('/muro');
       }).catch((err) => {
-        alert('No se pudo iniciar sesión con Google')
-      })
-
+        alert('No se pudo iniciar sesión con Google');
+      });
   });
-
 
   // Texto e hipervínculo "Regístrate"
   const botonRegistro = document.createElement('section');
@@ -75,9 +68,8 @@ export function createHome() {
   botonRegistro.id = 'registrateAqui';
   botonRegistro.style.textAlign = 'center';
   botonRegistro.addEventListener('click', () => {
-    //const botonRegistrate = document.getElementById("registrateAqui").value;
-    onNavigate('/register')
-
+    // const botonRegistrate = document.getElementById("registrateAqui").value;
+    onNavigate('/register');
   });
 
   // Creación de un elemento button y asignación a la variable button
@@ -91,13 +83,12 @@ export function createHome() {
     const password = document.getElementById('passwordUsuario').value;
 
     signInWithEmail(email, password).then(() => {
-      console.log('entré')
-      onNavigate('/muro')
+      console.log('entré');
+      onNavigate('/muro');
     }).catch((err) => {
       alert('Verifica los datos ingresados');
     });
   });
 
   return contenedorGeneral;
-
 }
