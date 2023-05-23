@@ -179,7 +179,6 @@
 
 .btnPublicar {
   padding: 5px;
-  color: white;
   border-radius: 4px;
   font-size: 20px;
   border: 2px solid #4CAF50;
@@ -312,13 +311,13 @@
   color: #000000;
 }
 
-.textoRegistro {
+/* .textoRegistro {
   top: 300px;
   color: #000000;
   position: absolute;
   font-size: 24px;
   font-weight: bold;
-}
+} */
 
 .botonVolver {
   flex-direction: row-reverse;
@@ -496,7 +495,6 @@
   
   .btnPublicar {
     padding: 5px;
-    color: white;
     border-radius: 4px;
     font-size: 20px;
     border: 2px solid #4CAF50;

@@ -1,6 +1,6 @@
 const ROUTES = {};
 
-//HISTORIAL
+// HISTORIAL
 export const onNavigate = (pathname) => {
   const path = typeof ROUTES[pathname] !== 'function' ? pathname : '/';
   window.history.pushState({}, path, window.location.origin + pathname);

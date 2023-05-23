@@ -2,7 +2,6 @@
 
 import { addRoutes, onNavigate } from './lib/router/index.js';
 import { createHome } from './components/Home';
-import { Login } from './components/Login';
 import { createRegister } from './components/Register';
 import { muro } from './components/Muro.js';
 

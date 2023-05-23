@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';

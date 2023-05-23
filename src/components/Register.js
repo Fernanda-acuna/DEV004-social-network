@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { onNavigate } from '../lib/router';
 import { createUser, exit } from '../lib/auth';
 // import { back } from '../lib/auth';
@@ -40,7 +41,8 @@ export function createRegister() {
   registrarseAqui.classList = 'registrarseAqui';
   // contenedorRegister.appendChild(registrarseAqui);MOSTRADO ABAJO
   registrarseAqui.setAttribute('type', 'submit');
-  // Asignación del texto "registrarse" al elemento button(que queremos que diga el boton en su interior)
+  // Asignación del texto "registrarse" al elemento button
+  // (que queremos que diga el boton en su interior)
   registrarseAqui.textContent = 'Registrarse';
 
   // boton para volver al inicio
@@ -76,4 +78,3 @@ export function createRegister() {
   contenedorRegister.appendChild(botonVolver);
   return contenedorRegister;
 }
-

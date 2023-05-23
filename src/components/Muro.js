@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { onNavigate } from "./components/main"
 
 import {
@@ -109,7 +110,6 @@ export function muro() {
 
         botonEditar.addEventListener('click', () => {
           // editoPost(element.id);
-          console.log('dentro de botonEditar');
           contieneTextoEditar.removeChild(contieneTextoEditar.firstChild);
           areaEdita.style.display = 'block';
           contieneTextoEditar.insertBefore(areaEdita, contieneTextoEditar.firstChild);
@@ -131,8 +131,6 @@ export function muro() {
           } catch (error) {
             console.error('error al actualizar:', error);
           }
-
-          //  console.log(editoPost);
         });
         contieneTextoEditar.appendChild(botonGuardar);
         contenedorPosts.appendChild(contieneTextoEditar);

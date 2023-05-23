@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-vars */
 import {
   signInWithEmailAndPassword,
-  getAuth,
   createUserWithEmailAndPassword,
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
 import {
-  addDoc, collection, getFirestore, query, onSnapshot, doc, deleteDoc, updateDoc,
+  addDoc, collection, query, onSnapshot, doc, deleteDoc, updateDoc,
 } from 'firebase/firestore';
 import { onNavigate } from './router/index';
 import { auth, db } from './firebase/firebase';
@@ -16,7 +16,8 @@ import { auth, db } from './firebase/firebase';
 // const db = getFirestore();
 
 // inicia sesion con mail y clave
-export const signInWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password)
+// eslint-disable-next-line max-len
+export const signInWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
 // .then((userCredential) => {
 //   console.log("funciona")
 //   // Signed in
@@ -32,9 +33,8 @@ export const signInWithEmail = (email, password) => signInWithEmailAndPassword(a
 
 // });
 
-;
-
 // crear usuario
+// eslint-disable-next-line max-len
 export const createUser = (emailR, passwordR) => createUserWithEmailAndPassword(auth, emailR, passwordR)
   .then((userCredential) => {
     // Signed in
