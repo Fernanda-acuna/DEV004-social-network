@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import imgUrl from '../imagenes/logo-marchantes.png';
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';
@@ -15,6 +16,8 @@ export function createHome() {
   const logo = document.createElement('img');
   logo.classList.add('logoMarchantes');
   logo.src = '../imagenes/logo-marchantes.png';
+  logo.id = 'logomarchantes';
+  document.getElementById('logoMarchantes').src = imgUrl;
   contenedorGeneral.appendChild(logo);
 
   // TEXTO PARA ingresar clave en EL INPUT DEL MAIL
