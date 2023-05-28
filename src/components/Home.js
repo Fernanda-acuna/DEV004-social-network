@@ -83,6 +83,7 @@ export function createHome() {
     const email = document.getElementById('emailUsuario').value;
     const password = document.getElementById('passwordUsuario').value;
 
+    // hacer mock de esta funcion para el test
     signInWithEmail(email, password).then(() => {
       console.log('entré');
       onNavigate('/muro');

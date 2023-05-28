@@ -40,11 +40,10 @@ export const createUser = (emailR, passwordR) => createUserWithEmailAndPassword(
     // Signed in
     const user = userCredential.user;
     onNavigate('/muro');
+    console.log('dentro de createUser');
     alert('Usuario registrado con éxito');
   })
   .catch((error) => {
-    const errorMessage = error.message;
-    console.log(errorMessage);
     alert('Verifica los datos, fue imposible registrarte');
   });
 

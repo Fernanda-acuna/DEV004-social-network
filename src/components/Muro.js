@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-// import { onNavigate } from "./components/main"
-
 import {
   addpost, borrarTexto, exit, listarPublicaciones, editoPost,
 } from '../lib/auth';
@@ -20,7 +18,7 @@ export function muro() {
   btnExit.classList = 'botonSalir';
   btnExit.textContent = 'Cerrar sesión';
   btnExit.addEventListener('click', () => {
-    exit().then((resp) => {
+    exit().then(() => {
       onNavigate('/');
     });
   });
@@ -56,7 +54,7 @@ export function muro() {
         areaDelPost.value = '';
         console.log('clear textarea');
       })
-      .catch((error) => {
+      .catch(() => {
         console.error('nothing');
       });
     console.log(addpost.publicacion);
@@ -92,7 +90,7 @@ export function muro() {
         // Crear el botón de "Eliminar"
         const deleteButton = document.createElement('button');
         deleteButton.classList = 'fa-regular fa-trash-can';
-        // deleteButton.textContent = "Eliminar";
+        deleteButton.id = 'botonEliminar';
         deleteButton.addEventListener('click', () => {
           // Llamar a la función para eliminar el post
           borrarTexto(element.id)
@@ -106,6 +104,7 @@ export function muro() {
         });
         const botonEditar = document.createElement('button');
         botonEditar.classList = 'fa-regular fa-pen-to-square';
+        botonEditar.id = 'botonEditar';
         const botonGuardar = document.createElement('button');
 
         botonEditar.addEventListener('click', () => {
@@ -116,6 +115,7 @@ export function muro() {
           botonGuardar.style.display = 'block';
         });
         botonGuardar.classList = 'fa-solid fa-circle-check';
+        botonGuardar.id = 'botonGuardar';
         botonGuardar.style.display = 'none';
         contieneTextoEditar.appendChild(botonGuardar);
         botonGuardar.addEventListener('click', () => {

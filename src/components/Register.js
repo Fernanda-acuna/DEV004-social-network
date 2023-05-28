@@ -15,7 +15,7 @@ export function createRegister() {
   const mailRegistro = document.createElement('input');
   mailRegistro.classList = 'mailInput';
   contenedorRegister.appendChild(mailRegistro);
-  mailRegistro.placeholder = 'Email';
+  mailRegistro.placeholder = 'ejemplo@mail.com';
   mailRegistro.setAttribute('required', '');
   mailRegistro.type = 'email';
   mailRegistro.id = 'emailUsuarioRegistro';
@@ -63,13 +63,12 @@ export function createRegister() {
     const passwordR = document.getElementById('passwordUsuarioRegistro').value;
 
     createUser(emailR, passwordR);
-    // .then((rep) => {
-    //   onNavigate('/muro')
-
-    // }).catch((err) => {
-    //   console.error("dentro de catch error");
-    //   alert('Verifica los datos, fue imposible registrarte')
-    // })
+    console.log('dentro de archivo register');
+  //     .then(() => {
+  //       onNavigate('/muro');
+  //     }).catch((err) => {
+  //       alert('Verifica los datos, fue imposible registrarte');
+  //     });
   });
 
   contenedorRegister.appendChild(textoRegistro);
