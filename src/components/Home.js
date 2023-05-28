@@ -15,9 +15,9 @@ export function createHome() {
   // Logo
   const logo = document.createElement('img');
   logo.classList.add('logoMarchantes');
-  logo.src = '../imagenes/logo-marchantes.png';
-  logo.id = 'logoMarchantes';
-  document.getElementById('logoMarchantes').src = imgUrl;
+  // logo.src = '../imagenes/logo-marchantes.png';
+  // logo.id = 'logoMarchantes';
+  document.getElementsByClassName('logoMarchantes').src = imgUrl;
   contenedorGeneral.appendChild(logo);
 
   // TEXTO PARA ingresar clave en EL INPUT DEL MAIL
