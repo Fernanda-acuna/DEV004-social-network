@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import imgUrl from '../imagenes/logo-marchantes.png';
+import imgtoUrl from '../imagenes/btn_google_signin_light_normal_web@2x.png';
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';
@@ -53,7 +54,7 @@ export function createHome() {
   botonGoogle.classList = 'botonGoogle';
   contenedorGeneral.appendChild(botonGoogle);
   botonGoogle.src = '../imagenes/btn_google_signin_light_normal_web@2x.png';
-  document.getElementsByClassName('botonGoogle').src = imgUrl;
+  document.getElementsByClassName('botonGoogle').src = imgtoUrl;
 
   // botonGoogle.textContent = "Inicia sesión con Google"
   botonGoogle.id = 'botonDeGoogle';
