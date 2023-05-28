@@ -16,7 +16,7 @@ export function createHome() {
   const logo = document.createElement('img');
   logo.classList.add('logoMarchantes');
   logo.src = '../imagenes/logo-marchantes.png';
-  logo.id = 'logomarchantes';
+  logo.id = 'logoMarchantes';
   document.getElementById('logoMarchantes').src = imgUrl;
   contenedorGeneral.appendChild(logo);
 
