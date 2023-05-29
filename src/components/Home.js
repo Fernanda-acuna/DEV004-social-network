@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import logoMarchantes from '../dist/assets/logo-marchantes.b857cd6b.png';
-// import logoGoogle from '../dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png';
+import logoGoogle from '../dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png';
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';
@@ -52,7 +52,7 @@ export function createHome() {
   // BOTON PARA INICIAR SESION CON GOOGLE
   const botonGoogle = document.createElement('img');
   botonGoogle.classList = 'botonGoogle';
-  botonGoogle.src = '../imagenes/btn_google_signin_light_normal_web_@2x.png';
+  botonGoogle.src = logoGoogle;
   contenedorGeneral.appendChild(botonGoogle);
 
   // document.getElementsByClassName('botonGoogle').src = imgtoUrl;
