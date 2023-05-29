@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// import logoMarchantes from '../dist/assets/logo-marchantes.b857cd6b.png';
+import logoMarchantes from '../dist/assets/logo-marchantes.b857cd6b.png';
 import {
   addpost, borrarTexto, exit, listarPublicaciones, editoPost,
 } from '../lib/auth';
