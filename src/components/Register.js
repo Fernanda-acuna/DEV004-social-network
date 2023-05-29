@@ -32,7 +32,7 @@ export function createRegister() {
   // Logo
   const logoRegistro = document.createElement('img');
   logoRegistro.classList.add('logoMarchantes');
-  logoRegistro.src = '../imagenes/logo-marchantes.png';
+  logoRegistro.src = '../src/dist/assets/logo-marchantes.b857cd6b.png';
   // contenedorRegister.appendChild(logoRegistro); MOSTRADO ABAJO
 
   // Creación de un elemento button y asignación a la variable button

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import logoMarchantes from '../imagenes/logo-marchantes.png';
+// import logoMarchantes from '../imagenes/logo-marchantes.png';
 import {
   addpost, borrarTexto, exit, listarPublicaciones, editoPost,
 } from '../lib/auth';
@@ -27,7 +27,7 @@ export function muro() {
 
   const logoMuro = document.createElement('img');
   logoMuro.classList.add('logoMarchantesMuro');
-  logoMuro.src = logoMarchantes;
+  logoMuro.src = '../src/dist/assets/logo-marchantes.b857cd6b.png';
   // document.getElementsByClassName('logoMarchantesMuro').src = imgUrl;
   // contenedorMuro.appendChild(logoMuro); MOSTRADO ABAJO
 

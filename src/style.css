@@ -281,6 +281,7 @@
 
 
 .botonGoogle {
+  content: url('../src/dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png');
   border: 1px solid #73a24e;
   width: 250px;
   position: absolute;
@@ -327,7 +328,7 @@
   }
 
   .logoMarchantes {
-    content: url('../imagenes/logo-marchantes.png');
+    content: url('../src/dist/assets/logo-marchantes.b857cd6b.png');
     position: absolute;
     max-width: 300px;
     max-height: 300px;
@@ -418,7 +419,7 @@
   }
 
   .logoMarchantesMuro {
-    content: url('../imagenes/logo-marchantes.png');
+    content: url('../src/dist/assets/logo-marchantes.b857cd6b.png');
     flex-direction: row;
     display: flex;
     align-self: flex-start;
@@ -548,7 +549,7 @@
 
 
   .botonGoogle {
-    content: url('btn_google_signin_light_normal_web@2x.1811e950.png');
+    content: url('../src/dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png');
     border: 1px solid #73a24e;
     width: 250px;
     position: absolute;

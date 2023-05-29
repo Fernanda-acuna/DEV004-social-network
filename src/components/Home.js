@@ -52,7 +52,7 @@ export function createHome() {
   const botonGoogle = document.createElement('img');
   botonGoogle.classList = 'botonGoogle';
   // botonGoogle.src = logoGoogle;
-  botonGoogle.src = '../imagenes/btn_google_signin_light_normal_web@2x.png';
+  botonGoogle.src = '../src/dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png';
   contenedorGeneral.appendChild(botonGoogle);
 
   // document.getElementsByClassName('botonGoogle').src = imgtoUrl;
