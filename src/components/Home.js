@@ -53,7 +53,7 @@ export function createHome() {
   const botonGoogle = document.createElement('img');
   botonGoogle.classList = 'botonGoogle';
   contenedorGeneral.appendChild(botonGoogle);
-  botonGoogle.src = '../imagenes/btn_google_signin_light_normal_web@2x.png';
+  botonGoogle.src = logoGoogle;
   // document.getElementsByClassName('botonGoogle').src = imgtoUrl;
 
   // botonGoogle.textContent = "Inicia sesión con Google"
