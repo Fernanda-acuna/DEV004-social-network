@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@300&family=Sarabun:wght@300&family=Source+Sans+Pro:ital@1&display=swap');
+
+* {
+  font-family: 'Alegreya Sans', sans-serif;
+  /* margin: auto; */
+
+}
+
+/* --------VISTA DEL INICIO------- */
+
+.contenedorGeneral {
+
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: white;
+  height: 899px;
+  width: 420px;
+  padding: 10px;
+  box-sizing: border-box;
+  /* border: 0.5px solid #000000; */
+  border-radius: 20px;
+}
+
+.logoMarchantes {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  backdrop-filter: blur(2px);
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 55px;
+}
+
+.iniciarSesionBtn {
+  position: absolute;
+  top: 550px;
+  left: 95px;
+  right: 95px;
+  background-color: #fefbfb;
+  color: #000000;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-color: #73a24e;
+  font-size: 24px;
+}
+
+.iniciarSesionBtn:active {
+  background-color: #a9c25d;
+}
+
+.textoRegistro {
+  text-align: center;
+  width: 300px;
+  top: 330px;
+  color: #000000;
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.mailInput {
+  position: absolute;
+  top: 400px;
+  left: 80px;
+  right: 80px;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  border-color: #416a59;
+
+}
+
+.txtIngresaMail {
+  top: 340px;
+  color: #000000;
+  position: absolute;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.txtIngresaClave {
+  position: absolute;
+  top: 440px;
+  color: #000000;
+  font-size: 28px;
+  font-weight: bold;
+
+}
+
+.claveInput {
+  position: absolute;
+  top: 500px;
+  left: 80px;
+  right: 80px;
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  border-color: #416a59;
+
+}
+
+.botonRegistro {
+  position: absolute;
+  top: 610px;
+  left: 97px;
+  right: 70px;
+  color: #000000;
+
+}
+
+/* ------VISTA DEL MURO------ */
+
+.contenedorMuro {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 896px;
+  width: 414px;
+  background: white;
+  box-sizing: border-box;
+  position: relative;
+
+  border-radius: 20px;
+}
+
+/* boton de cerrar sesion */
+
+.botonSalir {
+  flex-direction: row-reverse;
+  display: flex;
+  align-self: flex-end;
+  position: absolute;
+  background: white;
+  /* background-color: #eeeeee; */
+  color: #000000;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px #5f605f40;
+  font-size: 16px;
+  border-color: #73a24e;
+
+}
+
+.logoMarchantesMuro {
+  flex-direction: row;
+  display: flex;
+  align-self: flex-start;
+  width: 90px;
+  height: 90px;
+  /* backdrop-filter: blur(2px); */
+  left: 0;
+  right: 0;
+  top: 30px;
+  padding: 10px;
+
+}
+
+/* codigo prueba */
+
+.contenedorAreaPost {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  grid-template-rows: 1fr auto;
+  /* Adjust the grid template rows as needed */
+}
+
+.areaDelPost {
+  height: 200px;
+  width: 300px;
+  padding: 10px;
+  resize: none;
+  outline: none;
+  border: 2px solid #416a59;
+  border-radius: 5px 20px 5px;
+  display: block;
+}
+
+.btnPublicar {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 20px;
+  border: 2px solid #4CAF50;
+  background: white;
+  color: black;
+  box-shadow: 0px 4px 4px #5f605f40;
+  margin: 4px 4px 4px auto;
+  grid-template-rows: 2fr auto;
+  display: block;
+}
+
+.btnPublicar:active {
+  background-color: #c4f582c2;
+}
+
+.contenedorPosts {
+  padding: 10px;
+  top: 430px;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+  /* border: 2px solid #e86864; */
+  border-radius: 3px;
+  background-color: white;
+  display: flex;
+  width: 100%;
+  height: 700px;
+  font-size: 22px;
+
+}
+
+.listaDePost {
+  margin: 10px;
+  padding: 8px;
+  display: flex;
+  width: 90%;
+  height: 500px;
+  border: 1px solid #73a24e;
+  border-radius: 5px 20px 5px;
+  background: white;
+}
+
+#botonEditar {
+  border-radius: 3px;
+  border: 1px solid #4CAF50;
+  background: white;
+}
+
+#botonEliminar{
+  border-radius: 3px;
+  border: 1px solid lightcoral;
+  background: white;
+}
+
+#botonGuardar{
+  border-radius: 3px;
+  border: 1px solid lightseagreen;
+  background: white;
+}
+
+/* ------VISTA DEL REGISTRO------ */
+
+.contenedorRegister {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: 899px;
+  width: 420px;
+  padding: 10px;
+  background: white;
+  box-sizing: border-box;
+  position: relative;
+  /* border: 0.5px solid #000000; */
+  border-radius: 20px;
+}
+
+.registrarseAqui {
+  position: absolute;
+  top: 550px;
+  left: 95px;
+  right: 95px;
+  background-color: #fefbfb;
+  color: #000000;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-color: #73a24e;
+  font-size: 24px;
+
+}
+
+.registrarseAqui:active {
+  background-color: #c4f582c2
+}
+
+.botonGoogle {
+  border: 1px solid #73a24e;
+  width: 250px;
+  position: absolute;
+  top: 670px;
+  left: 90px;
+  right: 70px;
+  color: #000000;
+}
+
+.botonVolver {
+  flex-direction: row-reverse;
+  display: flex;
+  align-self: flex-start;
+  position: absolute;
+  background-color: #eeeeee;
+  color: #000000;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px #5f605f40;
+  font-size: 16px;
+  border-color: #73a24e;
+}
+
+/* } */
+
+/* 
+// MEDIDAS PARA PC`xl` applies to large devices (desktops, less than 1200px) */
+
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+
+  /* ------VISTA DEL INICIO------ */
+  .contenedorGeneral {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: white;
+    height: 1300px;
+    width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+
+  .logoMarchantes {
+    position: absolute;
+    max-width: 300px;
+    max-height: 300px;
+    backdrop-filter: blur(2px);
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 55px;
+  }
+
+  .iniciarSesionBtn {
+    background-color: #fefbfb;
+    position: absolute;
+    top: 651px;
+    left: 95px;
+    right: 95px;
+    color: #000000;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-color: #73a24e;
+    font-size: 24px;
+  }
+
+  .iniciarSesionBtn:active {
+    background-color: #c4f582c2
+  }
+
+  .txtIngresaMail {
+    top: 440px;
+    color: #000000;
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+
+  .mailInput {
+    position: absolute;
+    top: 500px;
+    left: 80px;
+    right: 80px;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+
+  }
+
+  .txtIngresaClave {
+    position: absolute;
+    top: 540px;
+    color: #000000;
+    font-size: 28px;
+    font-weight: bold;
+
+  }
+
+  .claveInput {
+    position: absolute;
+    top: 600px;
+    left: 80px;
+    right: 80px;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+  }
+
+  .botonRegistro {
+    position: absolute;
+    top: 700px;
+    left: 97px;
+    right: 70px;
+    color: #000000;
+    font-size: 24px;
+  }
+
+  /* ------VISTA DEL MURO------ */
+  .contenedorMuro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 896px;
+    width: 414px;
+    background: white;
+    /* box-sizing: border-box; */
+    position: relative;
+    /* border: 0.5px solid #000000; */
+    border-radius: 20px;
+  }
+
+  .logoMarchantesMuro {
+    flex-direction: row;
+    display: flex;
+    align-self: flex-start;
+    width: 90px;
+    height: 90px;
+    /* backdrop-filter: blur(2px); */
+    left: 0;
+    right: 0;
+    top: 30px;
+    padding: 10px;
+
+  }
+
+  .contenedorPosts {
+    padding: 10px;
+    top: 430px;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+    /* border: 2px solid #e86864; */
+    border-radius: 3px;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    height: 700px;
+    font-size: 22px;
+  }
+
+  .contenedorAreaPost {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: 1fr auto;
+    /* Adjust the grid template rows as needed */
+  }
+
+  .areaDelPost {
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    border: 2px solid #416a59;
+    border-radius: 5px 20px 5px;
+    display: block;
+  }
+
+  .btnPublicar {
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 20px;
+    border: 2px solid #4CAF50;
+    background: white;
+    color: black;
+    box-shadow: 0px 4px 4px #5f605f40;
+    margin: 4px 4px 4px auto;
+    grid-template-rows: 2fr auto;
+    display: block;
+  }
+
+  .btnPublicar:active {
+    background-color: #c4f582c2;
+  }
+
+  .botonSalir {
+    flex-direction: row-reverse;
+    display: flex;
+    align-self: flex-end;
+    position: absolute;
+    background-color: #eeeeee;
+    color: #000000;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px #5f605f40;
+    font-size: 16px;
+    border-color: #73a24e;
+    box-sizing: border-box;
+
+  }
+
+  #botonEditar {
+    border-radius: 3px;
+    border: 1px solid #4CAF50;
+    background: white;
+  }
+
+  #botonEliminar{
+    border-radius: 3px;
+    border: 1px solid lightcoral;
+    background: white;
+  }
+
+  /* ------VISTA DEL REGISTRO------ */
+  .contenedorRegister {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    max-height: 900px;
+    max-width: 430px;
+    background: #f5eec2;
+    box-sizing: border-box;
+    position: relative;
+    border: 0.5px solid #000000;
+    border-radius: 20px;
+  }
+
+  .registrarseAqui {
+    position: absolute;
+    top: 550px;
+    left: 95px;
+    right: 95px;
+    background-color: #fefbfb;
+    color: #000000;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-color: #73a24e;
+    font-size: 24px;
+
+  }
+
+  .registrarseAqui:active {
+    background-color: #c4f582c2
+  }
+
+
+  .botonGoogle {
+    border: 1px solid #73a24e;
+    width: 250px;
+    position: absolute;
+    top: 670px;
+    left: 90px;
+    right: 70px;
+    color: #000000;
+  }
+
+
+  .textoRegistro {
+    top: 300px;
+    /* align-content: center; */
+    color: #000000;
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .botonVolver {
+    flex-direction: row-reverse;
+    display: flex;
+    align-self: flex-start;
+    position: absolute;
+    background-color: #eeeeee;
+    color: #000000;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px #5f605f40;
+    font-size: 16px;
+    border-color: #73a24e;
+  }
+}
