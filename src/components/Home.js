@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-// import imgUrl from '../imagenes/logo-marchantes.png';
-// import imgtoUrl from '../imagenes/btn_google_signin_light_normal_web@2x.png';
+import logoMarchantes from '../dist/assets/logo-marchantes.b857cd6b.png';
+import logoGoogle from '../dist/assets/btn_google_signin_light_normal_web@2x.1811e950.png';
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';
@@ -16,7 +16,7 @@ export function createHome() {
   // Logo
   const logo = document.createElement('img');
   logo.classList.add('logoMarchantes');
-  logo.src = '../imagenes/logo-marchantes.png';
+  logo.src = logoMarchantes;
   // logo.id = 'logoMarchantes';
   // document.getElementsByClassName('logoMarchantes').src = imgUrl;
   contenedorGeneral.appendChild(logo);
