@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
-// import * as firebaseFn from '../src/lib/firebase/firebase';
-// import { onNavigate } from '../src/lib/router/index';
+// import {describe, expect, test} from '@jest/globals';
 import { createHome } from '../src/components/Home';
 // import { signInWithEmail } from '../src/lib/auth';
 

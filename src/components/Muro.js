@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import imgUrl from '../imagenes/logo-marchantes.png';
+// import logoMarchantes from '../dist/assets/logo-marchantes.b857cd6b.png';
 import {
   addpost, borrarTexto, exit, listarPublicaciones, editoPost,
 } from '../lib/auth';
@@ -27,8 +27,8 @@ export function muro() {
 
   const logoMuro = document.createElement('img');
   logoMuro.classList.add('logoMarchantesMuro');
-  logoMuro.src = '../imagenes/logo-marchantes.png';
-  document.getElementsByClassName('logoMarchantesMuro').src = imgUrl;
+  logoMuro.src = logoMarchantes;
+  // document.getElementsByClassName('logoMarchantesMuro').src = imgUrl;
   // contenedorMuro.appendChild(logoMuro); MOSTRADO ABAJO
 
   // input del texto/post
