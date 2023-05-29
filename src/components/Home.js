@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import imgUrl from '../imagenes/logo-marchantes.png';
-import imgtoUrl from '../imagenes/btn_google_signin_light_normal_web@2x.png';
+// import imgUrl from '../imagenes/logo-marchantes.png';
+// import imgtoUrl from '../imagenes/btn_google_signin_light_normal_web@2x.png';
 import { onNavigate } from '../lib/router';
 
 import { signInWithEmail, loginGoogle } from '../lib/auth';
@@ -18,7 +18,7 @@ export function createHome() {
   logo.classList.add('logoMarchantes');
   logo.src = '../imagenes/logo-marchantes.png';
   // logo.id = 'logoMarchantes';
-  document.getElementsByClassName('logoMarchantes').src = imgUrl;
+  // document.getElementsByClassName('logoMarchantes').src = imgUrl;
   contenedorGeneral.appendChild(logo);
 
   // TEXTO PARA ingresar clave en EL INPUT DEL MAIL
@@ -54,7 +54,7 @@ export function createHome() {
   botonGoogle.classList = 'botonGoogle';
   contenedorGeneral.appendChild(botonGoogle);
   botonGoogle.src = '../imagenes/btn_google_signin_light_normal_web@2x.png';
-  document.getElementsByClassName('botonGoogle').src = imgtoUrl;
+  // document.getElementsByClassName('botonGoogle').src = imgtoUrl;
 
   // botonGoogle.textContent = "Inicia sesión con Google"
   botonGoogle.id = 'botonDeGoogle';
