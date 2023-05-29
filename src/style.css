@@ -23,7 +23,7 @@
 }
 
 .logoMarchantes {
-  content: url('../imagenes/logo-marchantes.png');
+  content: url('../src/dist/assets/logo-marchantes.b857cd6b.png');
   position: absolute;
   width: 200px;
   height: 200px;
@@ -145,7 +145,7 @@
 }
 
 .logoMarchantesMuro {
-  content: url('../imagenes/logo-marchantes.png');
+  content: url('../src/dist/assets/logo-marchantes.b857cd6b.png');
   flex-direction: row;
   display: flex;
   align-self: flex-start;
