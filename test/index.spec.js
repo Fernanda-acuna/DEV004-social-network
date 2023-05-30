@@ -1,38 +1,26 @@
 /* eslint-disable max-len */
-// import {describe, expect, test} from '@jest/globals';
 import { createHome } from '../src/components/Home';
-// import { signInWithEmail } from '../src/lib/auth';
 
 // traerme la funcion mockeada de signinconemail
 global.alert = () => { };
-jest.mock('../src/lib/firebase/firebase', () => ({
-  signInWithEmail: jest.fn(),
-  onGetContent: jest.fn(),
-  onNavigate: jest.fn(),
+jest.mock('../src/lib/auth', () => ({
+  signInWithEmail: jest.fn().mockResolvedValue({ user: { email: 'usuario@mail.com' } }),
+
 }));
 describe('login', () => {
   it('al hacer click en el boton, este redirige', (done) => {
-    // const mockSignIn = jest.fn(() => Promise.resolve({ user: { email: 'usuario@mail.com' } }))
-    // donde se inserta la vista de Login
     const section = createHome();
     document.body.appendChild(section);
-    // donde estan las rutas
-    // addRoutes({
-    //   '/home': () => { },
-    // });
-    // mock del metodo
-    // section.signInWithEmail.mockResolvedValueOnce({ user: { email: 'usuario@mail.com' } });
-    // vista de Login
 
     // inputs de formulario completados
-    // section.querySelector('#email').value = 'usuario@mail.com';
-    // section.querySelector('#password').value = 'usu123';
-    // envio de formulario
+    section.querySelector('#emailUsuario').value = 'usuario@mail.com';
+    section.querySelector('#passwordUsuario').value = 'usu123';
+    // envio de formulario a traves del click
     section.querySelector('.iniciarSesionBtn').dispatchEvent(new Event('click'));
     // pasos completados debe dirigirnos a home
-    // investigar desde la linea 31 - 35
+    // el tiempo de la promesa
     setTimeout(() => {
-      expect(window.location.pathname).toBe('/');
+      expect(window.location.pathname).toBe('/muro');
 
       done();
     }, 0);

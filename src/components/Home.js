@@ -87,6 +87,7 @@ export function createHome() {
   // Asignación del texto "Iniciar sesión" al elemento button
   iniciarSesionBtn.textContent = 'Iniciar sesión';
   iniciarSesionBtn.addEventListener('click', () => {
+    // console.log('hicieron click');
     const email = document.getElementById('emailUsuario').value;
     const password = document.getElementById('passwordUsuario').value;
 

@@ -17,7 +17,11 @@ import { auth, db } from './firebase/firebase';
 
 // inicia sesion con mail y clave
 // eslint-disable-next-line max-len
-export const signInWithEmail = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const signInWithEmail = (email, password) => {
+  console.log('dentro de signin');
+  return signInWithEmailAndPassword(auth, email, password);
+};
+
 // .then((userCredential) => {
 //   console.log("funciona")
 //   // Signed in
