@@ -224,6 +224,24 @@
   border-radius: 5px 20px 5px;
   background: white;
 }
+.parrEditar{
+  height: 150px;
+  width: 300px;
+  padding: 5px;
+}
+
+.areaEdita{
+  margin: 10px;
+  padding: 8px;
+  /* display: flex; */
+  width: 140%;
+  height: 50px;
+  border:1px dashed #73a24e;
+  border-radius: 5px 20px 5px;
+  background: white;
+  resize: none;
+  outline: none;
+}
 
 #botonEditar {
   border-radius: 3px;
@@ -499,6 +517,25 @@
     border-color: #73a24e;
     box-sizing: border-box;
 
+  }
+
+  .parrEditar{
+    height: 150px;
+    width: 300px;
+    padding: 5px;
+  }
+
+  .areaEdita{
+    margin: 10px;
+    padding: 8px;
+    /* display: flex; */
+    width: 140%;
+    height: 50px;
+    border:1px dashed #73a24e;
+    border-radius: 5px 20px 5px;
+    background: white;
+    resize: none;
+    outline: none;
   }
 
   #botonEditar {
